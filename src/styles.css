@@ -650,43 +650,8 @@ h1 {
   margin-top: 0.5rem;
 }
 
-/* Taboo / draw card content */
+/* Centered card body (e.g. draw & guess) */
 .taboo-card-inner {
-  text-align: center;
-}
-
-.taboo-word {
-  font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.5vw, 2.65rem);
-  font-weight: 700;
-  margin: 0 0 0.85rem;
-  letter-spacing: -0.02em;
-}
-
-.taboo-forbidden-label {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-bottom: 0.65rem;
-}
-
-.taboo-chip-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 0.5rem;
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.taboo-chip {
-  padding: 0.4rem 0.65rem;
-  border: 1px solid #ffffff1a;
-  border-radius: 999px;
-  background: #00000033;
-  font-size: 0.92rem;
   text-align: center;
 }
 
@@ -703,6 +668,23 @@ h1 {
   color: var(--muted);
   font-size: 1rem;
   font-family: var(--font);
+}
+
+.scavenger-hunt-instruction {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.scavenger-hunt-object {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem) !important;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
 }
 
 .activity-tip {

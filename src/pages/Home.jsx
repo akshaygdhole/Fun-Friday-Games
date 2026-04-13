@@ -17,13 +17,6 @@ const cards = [
     cta: "Draw a prompt",
   },
   {
-    to: "/games/taboo",
-    icon: "\u{1F4AC}",
-    title: "Taboo-style guessing",
-    text: "Describe the word without using forbidden words. 60s turns, alternating teams.",
-    cta: "Play Taboo",
-  },
-  {
     to: "/games/categories",
     icon: "\u{1F4DC}",
     title: "Categories (60s)",
@@ -50,6 +43,13 @@ const cards = [
     title: "Rapid-fire",
     text: "Quick questions; first team to answer wins the point (host taps +1).",
     cta: "Play rapid-fire",
+  },
+  {
+    to: "/games/scavenger-hunt",
+    icon: "\u{1F3E0}",
+    title: "Virtual scavenger hunt",
+    text: "At-home items on a video call: show on camera or in chat. Winner earns 2 points per round.",
+    cta: "Start scavenger hunt",
   },
 ]
 
