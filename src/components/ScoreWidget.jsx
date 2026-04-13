@@ -19,7 +19,7 @@ export default function ScoreWidget() {
       </div>
       <div className="scorebar-right">
         <Link className="score-link" to="/scoreboard">
-          Scoreboard
+          Full scoreboard
         </Link>
       </div>
     </div>

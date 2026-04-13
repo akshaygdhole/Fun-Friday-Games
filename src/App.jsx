@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import GameLayout from "./components/GameLayout";
 import { ScoreProvider } from "./context/ScoreContext";
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
@@ -16,14 +17,16 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/quiz" element={<Quiz />} />
           <Route path="/scoreboard" element={<Scoreboard />} />
-          <Route path="/icebreakers" element={<Icebreakers />} />
-          <Route path="/games/taboo" element={<Taboo />} />
-          <Route path="/games/categories" element={<Categories />} />
-          <Route path="/games/draw" element={<DrawGame />} />
-          <Route path="/games/truths-lies" element={<TruthsLies />} />
-          <Route path="/games/rapidfire" element={<RapidFire />} />
+          <Route element={<GameLayout />}>
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/icebreakers" element={<Icebreakers />} />
+            <Route path="/games/taboo" element={<Taboo />} />
+            <Route path="/games/categories" element={<Categories />} />
+            <Route path="/games/draw" element={<DrawGame />} />
+            <Route path="/games/truths-lies" element={<TruthsLies />} />
+            <Route path="/games/rapidfire" element={<RapidFire />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

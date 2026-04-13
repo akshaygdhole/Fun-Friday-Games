@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import ScoreWidget from "../components/ScoreWidget";
 import { useScore } from "../context/ScoreContext";
 import { FUN_FRIDAY_RAPIDFIRE } from "../data/rapidfire";
 import { shuffle } from "../utils/shuffle";
@@ -28,19 +27,21 @@ export default function RapidFire() {
   }, [nextQuestion]);
 
   return (
-    <>
-      <nav className="page-nav">
-        <Link to="/">← Back to hub</Link>
-      </nav>
-      <main className="page-main">
-        <ScoreWidget />
-        <h1 className="page-title">Rapid-fire</h1>
-        <p className="page-sub">
-          Read the question aloud. First team to answer gets the point (honor system or raise hands). Then show the
-          answer.
-        </p>
-        <section className="panel">
-          <p className="question-text" style={{ marginBottom: "1rem" }}>
+    <div className="activity-page">
+      <div className="bg-pattern" aria-hidden="true" />
+      <main className="activity-layout">
+        <nav className="page-nav page-nav--activity">
+          <Link to="/">← Back to hub</Link>
+        </nav>
+        <header className="activity-hero--split">
+          <h1 className="page-title">Rapid-fire</h1>
+          <p className="page-sub">
+            Read the question aloud. First team to answer gets the point (honor system or raise hands). Then show the
+            answer.
+          </p>
+        </header>
+        <section className="panel activity-panel">
+          <p className="activity-question">
             {current ? current.q : "Add questions to src/data/rapidfire.js"}
           </p>
           <div className={`feedback feedback--fancy ${answerVisible ? "" : "hidden"}`}>
@@ -50,7 +51,7 @@ export default function RapidFire() {
               </>
             ) : null}
           </div>
-          <div className="quiz-actions" style={{ justifyContent: "center" }}>
+          <div className="activity-actions">
             <button type="button" className="btn btn-primary" onClick={nextQuestion}>
               Next question
             </button>
@@ -58,7 +59,7 @@ export default function RapidFire() {
               Show answer
             </button>
           </div>
-          <div className="quiz-actions" style={{ justifyContent: "center", marginTop: "0.75rem" }}>
+          <div className="activity-actions activity-actions--spaced activity-actions--grid">
             <button type="button" className="btn btn-primary" onClick={() => addScore(0, 1)}>
               Team A +1
             </button>
@@ -68,6 +69,6 @@ export default function RapidFire() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }

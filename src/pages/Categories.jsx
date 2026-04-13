@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ScoreWidget from "../components/ScoreWidget";
 import { useScore } from "../context/ScoreContext";
 import { FUN_FRIDAY_CATEGORIES } from "../data/categories";
 
@@ -55,23 +54,25 @@ export default function Categories() {
   }, [running]);
 
   return (
-    <>
-      <nav className="page-nav">
-        <Link to="/">← Back to hub</Link>
-      </nav>
-      <main className="page-main">
-        <ScoreWidget />
-        <h1 className="page-title">Categories (Scattergories-lite)</h1>
-        <p className="page-sub">
-          Pick a category and letter. Each team has 60s to list items that match. Host awards points.
-        </p>
-        <section className="panel">
+    <div className="activity-page">
+      <div className="bg-pattern" aria-hidden="true" />
+      <main className="activity-layout">
+        <nav className="page-nav page-nav--activity">
+          <Link to="/">← Back to hub</Link>
+        </nav>
+        <header className="activity-hero--split">
+          <h1 className="page-title">Categories (Scattergories-lite)</h1>
+          <p className="page-sub">
+            Pick a category and letter. Each team has 60s to list items that match. Host awards points.
+          </p>
+        </header>
+        <section className="panel activity-panel">
           <div className="quiz-meta">
             <span>Timer: {remaining}s</span>
             <span>Letter: {letter}</span>
           </div>
           <div className="prompt-box">{category}</div>
-          <div className="quiz-actions" style={{ justifyContent: "center" }}>
+          <div className="activity-actions">
             <button type="button" className="btn btn-primary" onClick={newRound}>
               New round
             </button>
@@ -82,7 +83,7 @@ export default function Categories() {
               Stop
             </button>
           </div>
-          <div className="quiz-actions" style={{ justifyContent: "center", marginTop: "0.75rem" }}>
+          <div className="activity-actions activity-actions--spaced activity-actions--grid">
             <button type="button" className="btn btn-primary" onClick={() => addScore(0, 1)}>
               Team A +1
             </button>
@@ -92,6 +93,6 @@ export default function Categories() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }

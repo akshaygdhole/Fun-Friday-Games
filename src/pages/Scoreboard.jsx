@@ -50,7 +50,8 @@ export default function Scoreboard() {
       <main className="page-main scoreboard-main">
         <h1 className="page-title scoreboard-page-title">Host controls</h1>
         <p className="page-sub">
-          Rename teams and tap points below. Stats in the header stay visible while you scroll.
+          Rename teams, use +1 / −1 / +5, or reset here. On quiz and games, the sticky bar at the top has the same live
+          scores with quick +1 / fouls so you can update without leaving the activity.
         </p>
 
         <section className="panel">

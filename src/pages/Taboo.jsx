@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import ScoreWidget from "../components/ScoreWidget";
 import { useScore } from "../context/ScoreContext";
 import { FUN_FRIDAY_TABOO } from "../data/taboo";
 import { shuffle } from "../utils/shuffle";
@@ -73,49 +72,31 @@ export default function Taboo() {
   }, [active, addScore, teamTurn, drawCard]);
 
   return (
-    <>
-      <nav className="page-nav">
-        <Link to="/">← Back to hub</Link>
-      </nav>
-      <main className="page-main">
-        <ScoreWidget />
-        <h1 className="page-title">Taboo-style guessing</h1>
-        <p className="page-sub">
-          One player describes the word without using the forbidden words. First team to hit a target score wins.
-        </p>
-        <section className="panel">
+    <div className="activity-page">
+      <div className="bg-pattern" aria-hidden="true" />
+      <main className="activity-layout">
+        <nav className="page-nav page-nav--activity">
+          <Link to="/">← Back to hub</Link>
+        </nav>
+        <header className="activity-hero--split">
+          <h1 className="page-title">Taboo-style guessing</h1>
+          <p className="page-sub">
+            One player describes the word without using the forbidden words. First team to hit a target score wins.
+          </p>
+        </header>
+        <section className="panel activity-panel">
           <div className="quiz-meta">
             <span>Round: {remaining}s</span>
             <span>Turn: {teams[teamTurn].name}</span>
           </div>
           <div className="prompt-box" id="card">
             {current ? (
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", marginBottom: "0.75rem" }}>
-                  {current.word}
-                </div>
-                <div style={{ color: "var(--muted)", fontSize: "0.95rem", marginBottom: "0.5rem" }}>Forbidden:</div>
-                <ul
-                  style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: 0,
-                    display: "flex",
-                    gap: "0.5rem",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                  }}
-                >
+              <div className="taboo-card-inner">
+                <div className="taboo-word">{current.word}</div>
+                <div className="taboo-forbidden-label">Forbidden:</div>
+                <ul className="taboo-chip-list">
                   {(current.forbidden || []).map((w) => (
-                    <li
-                      key={w}
-                      style={{
-                        padding: "0.25rem 0.5rem",
-                        border: "1px solid #ffffff1a",
-                        borderRadius: "999px",
-                        background: "#00000022",
-                      }}
-                    >
+                    <li key={w} className="taboo-chip">
                       {w}
                     </li>
                   ))}
@@ -125,7 +106,7 @@ export default function Taboo() {
               idleMsg
             )}
           </div>
-          <div className="quiz-actions" style={{ justifyContent: "center" }}>
+          <div className="activity-actions">
             <button type="button" className="btn btn-primary" onClick={startTurn} disabled={active}>
               Start turn
             </button>
@@ -139,11 +120,11 @@ export default function Taboo() {
               Foul (-1)
             </button>
           </div>
-          <p className="page-sub" style={{ margin: "1rem 0 0" }}>
+          <p className="activity-tip">
             Tip: with ~12-15 people, use two teams of ~6-8. Rotate who gives clues each card so everyone gets a turn.
           </p>
         </section>
       </main>
-    </>
+    </div>
   );
 }

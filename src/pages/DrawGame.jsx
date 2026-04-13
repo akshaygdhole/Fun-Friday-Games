@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import ScoreWidget from "../components/ScoreWidget";
 import { useScore } from "../context/ScoreContext";
 import { FUN_FRIDAY_DRAW_PROMPTS } from "../data/draw-prompts";
 import { shuffle } from "../utils/shuffle";
@@ -57,35 +56,35 @@ export default function DrawGame() {
   }, [active, drawCard]);
 
   return (
-    <>
-      <nav className="page-nav">
-        <Link to="/">← Back to hub</Link>
-      </nav>
-      <main className="page-main">
-        <ScoreWidget />
-        <h1 className="page-title">Draw & guess</h1>
-        <p className="page-sub">
-          Draw on paper/whiteboard, or give emoji-only hints in chat. 60s turns, alternate teams. Works well with ~6-8
-          per side.
-        </p>
-        <section className="panel">
+    <div className="activity-page">
+      <div className="bg-pattern" aria-hidden="true" />
+      <main className="activity-layout">
+        <nav className="page-nav page-nav--activity">
+          <Link to="/">← Back to hub</Link>
+        </nav>
+        <header className="activity-hero--split">
+          <h1 className="page-title">Draw & guess</h1>
+          <p className="page-sub">
+            Draw on paper/whiteboard, or give emoji-only hints in chat. 60s turns, alternate teams. Works well with ~6-8
+            per side.
+          </p>
+        </header>
+        <section className="panel activity-panel">
           <div className="quiz-meta">
             <span>Round: {remaining}s</span>
             <span>Turn: {teams[teamTurn].name}</span>
           </div>
           <div className="prompt-box">
             {word ? (
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", marginBottom: "0.75rem" }}>{word}</div>
-                <p style={{ margin: 0, color: "var(--muted)", fontSize: "0.95rem", fontFamily: "var(--font)" }}>
-                  Draw it - or use emoji-only hints in chat (no words).
-                </p>
+              <div className="taboo-card-inner">
+                <div className="draw-word">{word}</div>
+                <p className="draw-hint">Draw it - or use emoji-only hints in chat (no words).</p>
               </div>
             ) : (
               idleMsg
             )}
           </div>
-          <div className="quiz-actions" style={{ justifyContent: "center" }}>
+          <div className="activity-actions">
             <button type="button" className="btn btn-primary" onClick={startTurn} disabled={active}>
               Start turn
             </button>
@@ -105,11 +104,11 @@ export default function DrawGame() {
               Correct (+1)
             </button>
           </div>
-          <p className="page-sub" style={{ margin: "1rem 0 0" }}>
+          <p className="activity-tip">
             Edit prompts in <code>src/data/draw-prompts.js</code>.
           </p>
         </section>
       </main>
-    </>
+    </div>
   );
 }

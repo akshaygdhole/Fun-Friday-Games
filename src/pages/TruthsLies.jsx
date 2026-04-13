@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import ScoreWidget from "../components/ScoreWidget";
 import { useScore } from "../context/ScoreContext";
 import { FUN_FRIDAY_TRUTHS_LIES } from "../data/truths-lies";
 import { shuffle } from "../utils/shuffle";
@@ -30,15 +29,17 @@ export default function TruthsLies() {
   }, [current, revealed]);
 
   return (
-    <>
-      <nav className="page-nav">
-        <Link to="/">← Back to hub</Link>
-      </nav>
-      <main className="page-main">
-        <ScoreWidget />
-        <h1 className="page-title">Two truths & a lie</h1>
-        <p className="page-sub">Teams discuss which statement is the lie, then reveal. Host awards the point.</p>
-        <section className="panel">
+    <div className="activity-page">
+      <div className="bg-pattern" aria-hidden="true" />
+      <main className="activity-layout">
+        <nav className="page-nav page-nav--activity">
+          <Link to="/">← Back to hub</Link>
+        </nav>
+        <header className="activity-hero--split">
+          <h1 className="page-title">Two truths & a lie</h1>
+          <p className="page-sub">Teams discuss which statement is the lie, then reveal. Host awards the point.</p>
+        </header>
+        <section className="panel activity-panel">
           <ol className="stmt-list">
             {current ? (
               current.statements.map((s, i) => (
@@ -56,13 +57,11 @@ export default function TruthsLies() {
                 <strong>
                   The lie is #{current.lieIndex + 1} ({["A", "B", "C"][current.lieIndex] || current.lieIndex + 1}).
                 </strong>
-                {current.explain ? (
-                  <div style={{ marginTop: "0.5rem", color: "var(--muted)" }}>{current.explain}</div>
-                ) : null}
+                {current.explain ? <div className="activity-explain">{current.explain}</div> : null}
               </>
             ) : null}
           </div>
-          <div className="quiz-actions" style={{ justifyContent: "center" }}>
+          <div className="activity-actions">
             <button type="button" className="btn btn-primary" onClick={newRound}>
               New round
             </button>
@@ -70,7 +69,7 @@ export default function TruthsLies() {
               Reveal lie
             </button>
           </div>
-          <div className="quiz-actions" style={{ justifyContent: "center", marginTop: "0.75rem" }}>
+          <div className="activity-actions activity-actions--spaced activity-actions--grid">
             <button type="button" className="btn btn-primary" onClick={() => addScore(0, 1)}>
               Team A guessed right (+1)
             </button>
@@ -80,6 +79,6 @@ export default function TruthsLies() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }

@@ -1,15 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import ScoreWidget from "../components/ScoreWidget";
-import { useScore } from "../context/ScoreContext";
 import { FUN_FRIDAY_QUESTIONS } from "../data/questions";
 
 const LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
 export default function Quiz() {
   const questions = useMemo(() => FUN_FRIDAY_QUESTIONS || [], []);
-  const { teams, addScore } = useScore();
-  const [a, b] = teams;
 
   const [index, setIndex] = useState(0);
   const [revealScore, setRevealScore] = useState(0);
@@ -67,18 +63,19 @@ export default function Quiz() {
   return (
     <div className="quiz-page">
       <div className="bg-pattern" aria-hidden="true" />
-      <div className="quiz-layout">
+      <div className="quiz-layout quiz-layout-web">
         <div className="quiz-content">
           <nav className="page-nav page-nav--quiz">
             <Link to="/">← Back to hub</Link>
           </nav>
 
-          <header className="quiz-hero">
+          <header className="quiz-hero quiz-hero-web">
             <p className="quiz-hero-eyebrow">Two teams</p>
             <h1 className="quiz-hero-title">Team quiz</h1>
             <p className="quiz-hero-lede">
-              Buzz in or discuss. Use the <strong>score dock</strong> to award points (alongside the quiz on a wide
-              screen, above it on a phone). Tap an answer to reveal the correct choice and explanation.
+              Buzz in or discuss. Use the <strong>sticky bar at the top</strong> for +1 / fouls anytime, or{" "}
+              <Link to="/scoreboard">Full scoreboard</Link> to rename teams, add +5, or reset. Tap an answer to reveal
+              the correct choice and explanation.
             </p>
           </header>
 
@@ -96,7 +93,7 @@ export default function Quiz() {
                 </span>
               </div>
               <p className="question-text question-text--fancy">{q.question}</p>
-              <div className="options options--fancy" role="group" aria-label="Answers">
+              <div className="options options--fancy quiz-options-grid" role="group" aria-label="Answers">
                 {q.options.map((opt, i) => (
                   <button
                     key={i}
@@ -135,67 +132,6 @@ export default function Quiz() {
             </article>
           )}
         </div>
-
-        <aside className="quiz-score-dock" aria-label="Live scores and host controls">
-          <div className="quiz-dock-inner">
-            <div className="quiz-dock-header">
-              <span className="quiz-dock-title">Score dock</span>
-              <span className="quiz-dock-badge">Host</span>
-            </div>
-            <ScoreWidget />
-            <section className="host-quiz-scoring host-quiz-scoring--dock" aria-label="Team scoring">
-              <p className="dock-host-label">Award or foul</p>
-              <div className="dock-host-rows">
-                <div className="dock-host-team">
-                  <span className="dock-host-name">{a.name}</span>
-                  <div className="dock-host-btns">
-                    <button
-                      type="button"
-                      className="btn-dock btn-dock-plus"
-                      title={`${a.name} — award 1 point`}
-                      aria-label={`${a.name}: award one point`}
-                      onClick={() => addScore(0, 1)}
-                    >
-                      +1
-                    </button>
-                    <button
-                      type="button"
-                      className="btn-dock btn-dock-foul"
-                      title={`${a.name} — foul (minus 1)`}
-                      aria-label={`${a.name}: foul minus one point`}
-                      onClick={() => addScore(0, -1)}
-                    >
-                      −1
-                    </button>
-                  </div>
-                </div>
-                <div className="dock-host-team">
-                  <span className="dock-host-name">{b.name}</span>
-                  <div className="dock-host-btns">
-                    <button
-                      type="button"
-                      className="btn-dock btn-dock-plus"
-                      title={`${b.name} — award 1 point`}
-                      aria-label={`${b.name}: award one point`}
-                      onClick={() => addScore(1, 1)}
-                    >
-                      +1
-                    </button>
-                    <button
-                      type="button"
-                      className="btn-dock btn-dock-foul"
-                      title={`${b.name} — foul (minus 1)`}
-                      aria-label={`${b.name}: foul minus one point`}
-                      onClick={() => addScore(1, -1)}
-                    >
-                      −1
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </aside>
       </div>
     </div>
   );

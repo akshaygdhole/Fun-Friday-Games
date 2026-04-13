@@ -17,13 +17,6 @@ const cards = [
     cta: "Draw a prompt",
   },
   {
-    to: "/scoreboard",
-    icon: "\u{1F3C6}",
-    title: "Scoreboard (2 teams)",
-    text: "Set team names and track points while you play.",
-    cta: "Open scoreboard",
-  },
-  {
     to: "/games/taboo",
     icon: "\u{1F4AC}",
     title: "Taboo-style guessing",
