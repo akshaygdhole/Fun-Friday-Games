@@ -1,0 +1,18 @@
+/** Words or phrases to draw (whiteboard/paper) or hint with emojis only in chat. */
+window.FUN_FRIDAY_DRAW_PROMPTS = [
+  "Rocket ship",
+  "Birthday cake",
+  "Lightning bolt",
+  "Detective",
+  "Time machine",
+  "Sandwich",
+  "Octopus",
+  "Wi-Fi",
+  "Snowman",
+  "Marathon",
+  "Umbrella",
+  "Video call",
+  "Treasure map",
+  "Lighthouse",
+  "Kangaroo",
+];
