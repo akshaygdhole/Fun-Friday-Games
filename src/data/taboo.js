@@ -1,4 +1,4 @@
-window.FUN_FRIDAY_TABOO = [
+export const FUN_FRIDAY_TABOO = [
   { word: "Standup", forbidden: ["daily", "meeting", "update", "scrum", "status"] },
   { word: "Deploy", forbidden: ["release", "production", "push", "ship", "rollout"] },
   { word: "Bug", forbidden: ["issue", "defect", "error", "crash", "fix"] },

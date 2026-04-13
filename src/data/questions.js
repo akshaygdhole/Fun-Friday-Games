@@ -2,7 +2,7 @@
  * Team quiz (same bank for both teams). Host awards points on the quiz page.
  * correctIndex: 0-based index into options.
  */
-window.FUN_FRIDAY_QUESTIONS = [
+export const FUN_FRIDAY_QUESTIONS = [
   {
     question: "Which city is the capital of Australia?",
     options: ["Sydney", "Melbourne", "Canberra", "Brisbane"],

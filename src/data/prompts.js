@@ -1,5 +1,5 @@
 /** One prompt per line in the array—add your own team-safe prompts. */
-window.FUN_FRIDAY_PROMPTS = [
+export const FUN_FRIDAY_PROMPTS = [
   "What’s a small win you had this week?",
   "If you could instantly master one hobby, what would it be?",
   "What’s the best meal you’ve had recently?",

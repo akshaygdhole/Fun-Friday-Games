@@ -1,19 +1,42 @@
 # Fun Friday Games
 
-Static HTML/CSS/JS mini-site for team activities: quiz (with score dock), icebreakers, Taboo-style guessing, categories, drawing prompts, rapid-fire, two truths and a lie, and a shared two-team scoreboard.
+Team games in **React** (Vite): quiz with score dock, icebreakers, Taboo-style rounds, categories, drawing prompts, rapid-fire, two truths and a lie, and a shared two-team scoreboard (same `localStorage` key as before: `fun_friday_score_v1`).
 
-## Run locally
+## Develop
 
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
-Open [http://localhost:8080](http://localhost:8080) and start from `index.html`.
+Open the URL Vite prints (usually [http://localhost:5173](http://localhost:5173)).
 
-## Customize- Quiz: `data/questions.js`
-- Icebreakers: `data/prompts.js`
-- Other games: files under `data/`
+## Production build
 
-## Host for your team
+```bash
+npm run build
+```
 
-Upload the folder to [GitHub Pages](https://pages.github.com/), [Netlify Drop](https://app.netlify.com/drop), or any static host.
+Static output is in `dist/`. Serve that folder with any static host (Netlify, GitHub Pages, `npx serve dist`, etc.).
+
+## Customize content
+
+- Quiz: `src/data/questions.js`
+- Icebreakers: `src/data/prompts.js`
+- Other games: `src/data/*.js`
+
+## Routes
+
+| Path | Page |
+|------|------|
+| `/` | Hub |
+| `/quiz` | Team quiz |
+| `/scoreboard` | Full scoreboard |
+| `/icebreakers` | Icebreaker prompts |
+| `/games/taboo` | Taboo |
+| `/games/categories` | Categories |
+| `/games/draw` | Draw & guess |
+| `/games/truths-lies` | Two truths & a lie |
+| `/games/rapidfire` | Rapid-fire |
+
+For GitHub Pages with a project URL (`/Fun-Friday-Games/`), set `base` in `vite.config.js` (see [Vite base](https://vitejs.dev/config/shared-options.html#base)).

@@ -1,5 +1,5 @@
 /** Short questions for speed rounds — host decides who buzzed first. */
-window.FUN_FRIDAY_RAPIDFIRE = [
+export const FUN_FRIDAY_RAPIDFIRE = [
   { q: "What is 12 × 7?", a: "84" },
   { q: "How many sides does a hexagon have?", a: "6" },
   { q: "What is the chemical symbol for gold?", a: "Au" },

@@ -2,7 +2,7 @@
  * Two truths and a lie (team play).
  * lieIndex: 0, 1, or 2 — which statement is the lie.
  */
-window.FUN_FRIDAY_TRUTHS_LIES = [
+export const FUN_FRIDAY_TRUTHS_LIES = [
   {
     statements: [
       "Honey never spoils if stored properly.",
