@@ -6,11 +6,6 @@ const LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
 const QUIZ_QUESTION_SECONDS = 15
 
-/** Q1, Q3… → Team A first; Q2, Q4… → Team B first. Second window is always the other team. */
-function firstTeamForQuestion(i) {
-  return i % 2 === 0 ? "A" : "B"
-}
-
 function otherTeam(t) {
   return t === "A" ? "B" : "A"
 }
@@ -34,8 +29,11 @@ export default function Quiz() {
   const revealed = slot.revealed === true
   const firstDone = slot.firstDone === true
   const secondDone = slot.secondDone === true
+  const selectedIndex =
+    typeof slot.selectedIndex === "number" ? slot.selectedIndex : null
 
-  const teamFirst = firstTeamForQuestion(index)
+  // Rules: each question starts with Team B, then Team A.
+  const teamFirst = "B"
   const teamSecond = otherTeam(teamFirst)
   const runningTeam =
     activeWindow === "first"
@@ -148,6 +146,18 @@ export default function Quiz() {
     }))
   }, [index, revealed])
 
+  const chooseOption = useCallback(
+    (i) => {
+      if (revealed) return
+      if (!firstDone || !secondDone) return
+      setPerQuestion((prev) => ({
+        ...prev,
+        [index]: { ...prev[index], selectedIndex: i },
+      }))
+    },
+    [index, revealed, firstDone, secondDone],
+  )
+
   const pct = questions.length
     ? ((index + (revealed ? 1 : 0)) / questions.length) * 100
     : 0
@@ -205,8 +215,8 @@ export default function Quiz() {
           <header className="quiz-hero quiz-hero-web">
             <h1 className="quiz-hero-title">Team quiz</h1>
             <p className="quiz-hero-lede">
-              Rules: each question has two {QUIZ_QUESTION_SECONDS}s turns (Team {teamFirst} then Team {teamSecond}). After both turns,
-              anyone can answer. The correct option and explanation appear when <strong>Reveal answer</strong> is pressed.
+              Rules: each question has two {QUIZ_QUESTION_SECONDS}s turns (Team B then Team A). After both turns, anyone can answer.
+              The correct option and explanation appear when <strong>Reveal answer</strong> is pressed.
             </p>
           </header>
 
@@ -247,9 +257,12 @@ export default function Quiz() {
                       <button
                         key={i}
                         type="button"
-                        className={`option-btn ${revealed && i === q.correctIndex ? "correct" : ""}`}
+                        className={`option-btn ${
+                          selectedIndex === i ? "selected" : ""
+                        } ${revealed && i === q.correctIndex ? "correct" : ""}`}
                         data-letter={LETTERS[i] || String(i + 1)}
-                        disabled
+                        disabled={revealed || !firstDone || !secondDone}
+                        onClick={() => chooseOption(i)}
                       >
                         {opt}
                       </button>

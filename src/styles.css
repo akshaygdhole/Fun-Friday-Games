@@ -1142,6 +1142,13 @@ h1 {
     0 8px 32px #064e3a33;
 }
 
+.options--fancy .option-btn.selected:not(.correct):not(.wrong) {
+  border-color: #60a5fa;
+  box-shadow:
+    0 0 0 1px #60a5fa33,
+    0 8px 32px #1d4ed833;
+}
+
 .option-btn.wrong {
   border-color: #f87171;
   background: #7f1d1d33;
