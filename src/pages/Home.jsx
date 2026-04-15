@@ -12,9 +12,9 @@ const cards = [
   {
     to: "/games/scavenger-hunt",
     icon: "\u{1F3E0}",
-    title: "Virtual scavenger hunt",
+    title: "Home Hunt",
     text: "Race to find an item and show it on camera (or in chat). Fastest wins the round.",
-    cta: "Start scavenger hunt",
+    cta: "Start Home Hunt",
   },
   {
     to: "/games/draw",

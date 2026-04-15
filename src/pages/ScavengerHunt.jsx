@@ -46,7 +46,7 @@ export default function ScavengerHunt() {
           <Link to="/">← Back to hub</Link>
         </nav>
         <header className="activity-hero--split">
-          <h1 className="page-title">Virtual scavenger hunt</h1>
+          <h1 className="page-title">Home Hunt</h1>
           <p className="page-sub">
             Find the item, show it on camera or in chat. First team to show it
             earns <strong>2 points</strong>.
