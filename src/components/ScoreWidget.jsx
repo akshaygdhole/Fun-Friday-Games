@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import { useScore } from "../context/ScoreContext";
+import { Link } from "react-router-dom"
+import { useScore } from "../context/ScoreContext"
 
 export default function ScoreWidget() {
-  const { teams } = useScore();
-  const [a, b] = teams;
+  const { teams } = useScore()
+  const [a, b] = teams
 
   return (
     <div className="scorebar">
@@ -19,9 +19,9 @@ export default function ScoreWidget() {
       </div>
       <div className="scorebar-right">
         <Link className="score-link" to="/scoreboard">
-          Full scoreboard
+          Scoreboard
         </Link>
       </div>
     </div>
-  );
+  )
 }

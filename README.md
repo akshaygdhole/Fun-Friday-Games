@@ -27,16 +27,16 @@ Static output is in `dist/`. Serve that folder with any static host (Netlify, Gi
 
 ## Routes
 
-| Path | Page |
-|------|------|
-| `/` | Hub |
-| `/quiz` | Team quiz |
-| `/scoreboard` | Full scoreboard |
-| `/icebreakers` | Icebreaker prompts |
-| `/games/categories` | Categories |
-| `/games/draw` | Draw & guess |
-| `/games/truths-lies` | Two truths & a lie |
-| `/games/rapidfire` | Rapid-fire |
+| Path                    | Page                   |
+| ----------------------- | ---------------------- |
+| `/`                     | Hub                    |
+| `/quiz`                 | Team quiz              |
+| `/scoreboard`           | Scoreboard             |
+| `/icebreakers`          | Icebreaker prompts     |
+| `/games/categories`     | Categories             |
+| `/games/draw`           | Draw & guess           |
+| `/games/truths-lies`    | Two truths & a lie     |
+| `/games/rapidfire`      | Rapid-fire             |
 | `/games/scavenger-hunt` | Virtual scavenger hunt |
 
 For GitHub Pages with a project URL (`/Fun-Friday-Games/`), set `base` in `vite.config.js` (see [Vite base](https://vitejs.dev/config/shared-options.html#base)).
