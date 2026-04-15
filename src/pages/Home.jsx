@@ -6,7 +6,7 @@ const cards = [
     to: "/quiz",
     icon: "?",
     title: "Team quiz",
-    text: "Team B gets 15s, then Team A gets 15s. After that, anyone can answer—tap Reveal to check.",
+    text: "Team A gets 15 seconds to answer. If they can’t, Team B gets 15 seconds to steal.",
     cta: "Start quiz",
   },
   {

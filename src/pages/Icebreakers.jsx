@@ -21,6 +21,8 @@ export default function Icebreakers() {
     if (!prompts.length) return
     if (prompts.length === 1) {
       setPrompt(prompts[0])
+      setOrder([0])
+      setPos(0)
       return
     }
 
@@ -48,6 +50,8 @@ export default function Icebreakers() {
   }, [order, pos, prompt])
 
   const empty = !FUN_FRIDAY_PROMPTS?.length
+  const total = FUN_FRIDAY_PROMPTS?.length || 0
+  const shown = pos >= 0 && prompt != null ? pos + 1 : 0
 
   return (
     <div className="activity-page">
@@ -62,9 +66,12 @@ export default function Icebreakers() {
         </header>
 
         <section className="panel activity-panel">
+          <div className="quiz-meta">
+            <span>{total ? `Prompt ${Math.min(shown, total)} / ${total}` : "No prompts"}</span>
+          </div>
           <div className={`prompt-box ${prompt == null ? "placeholder" : ""}`}>
             {empty
-              ? "Add prompts to src/data/prompts.js"
+              ? "No prompts yet — add a few and try again."
               : (prompt ?? "Tap “New prompt” to draw a random question.")}
           </div>
           <div className="activity-actions">

@@ -92,8 +92,8 @@ export default function DrawGame() {
         <header className="activity-hero--split">
           <h1 className="page-title">Draw & guess</h1>
           <p className="page-sub">
-            15-second rounds. Anyone can draw; fastest team to guess scores.
-            Draw on paper/whiteboard, or emoji-only hints in chat (no spoken words).
+            15-second rounds. Draw (or use emoji-only hints) — first team to
+            guess gets +1. No spoken words.
           </p>
         </header>
         <section className="panel activity-panel">

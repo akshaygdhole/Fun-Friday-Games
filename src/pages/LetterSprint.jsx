@@ -1,19 +1,21 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { useScore } from "../context/ScoreContext"
 import { FUN_FRIDAY_CATEGORIES } from "../data/categories"
+import { shuffle } from "../utils/shuffle"
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 export default function LetterSprint() {
   const categories = FUN_FRIDAY_CATEGORIES || []
   const { addScore } = useScore()
+  const deckRef = useRef([])
   const [remaining, setRemaining] = useState(60)
   const [running, setRunning] = useState(false)
   const [letter, setLetter] = useState("A")
   const [category, setCategory] = useState("Press “New round”.")
-  const [lastCat, setLastCat] = useState(-1)
   const [lastLetter, setLastLetter] = useState("")
+  const [roundNum, setRoundNum] = useState(0)
 
   const drawLetter = useCallback(() => {
     let l = ALPHABET[Math.floor(Math.random() * ALPHABET.length)]
@@ -25,14 +27,14 @@ export default function LetterSprint() {
   }, [lastLetter])
 
   const drawCategory = useCallback(() => {
-    if (!categories.length) return "Add categories in src/data/categories.js"
-    let i = Math.floor(Math.random() * categories.length)
-    let g = 0
-    while (i === lastCat && categories.length > 1 && g++ < 32)
-      i = Math.floor(Math.random() * categories.length)
-    setLastCat(i)
-    return categories[i]
-  }, [categories, lastCat])
+    if (!categories.length) return "No categories yet — add a few and try again."
+    if (!deckRef.current.length) {
+      deckRef.current = shuffle([...categories])
+      setRoundNum(0)
+    }
+    setRoundNum((n) => n + 1)
+    return deckRef.current.shift()
+  }, [categories])
 
   const newRound = useCallback(() => {
     setRemaining(60)
@@ -73,6 +75,11 @@ export default function LetterSprint() {
           <div className="quiz-meta">
             <span>Timer: {remaining}s</span>
             <span>Letter: {letter}</span>
+            <span>
+              {categories.length
+                ? `Category ${Math.min(roundNum, categories.length)} / ${categories.length}`
+                : "No categories"}
+            </span>
           </div>
           <div className="prompt-box">{category}</div>
           <div className="activity-actions">

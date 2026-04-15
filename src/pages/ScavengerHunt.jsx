@@ -12,14 +12,19 @@ export default function ScavengerHunt() {
   const [current, setCurrent] = useState(null)
   const [remaining, setRemaining] = useState(60)
   const [running, setRunning] = useState(false)
+  const [itemNum, setItemNum] = useState(0)
 
   const newRound = useCallback(() => {
     if (!items.length) return
-    if (!deckRef.current.length) deckRef.current = shuffle([...items])
+    if (!deckRef.current.length) {
+      deckRef.current = shuffle([...items])
+      setItemNum(0)
+    }
     const next = deckRef.current.shift() ?? null
     setCurrent(next)
     setRunning(false)
     setRemaining(60)
+    setItemNum((n) => n + 1)
   }, [items])
 
   useEffect(() => {
@@ -56,6 +61,11 @@ export default function ScavengerHunt() {
           <div className="quiz-meta">
             <span>
               Timer: {remaining}s {!running ? "(paused)" : ""}
+            </span>
+            <span>
+              {items.length
+                ? `Item ${Math.min(itemNum, items.length)} / ${items.length}`
+                : "No items"}
             </span>
           </div>
 
