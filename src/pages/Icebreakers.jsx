@@ -2,8 +2,19 @@ import { useCallback, useState } from "react"
 import { Link } from "react-router-dom"
 import { FUN_FRIDAY_PROMPTS } from "../data/prompts"
 
+function shuffledIndices(n) {
+  const a = Array.from({ length: n }, (_, i) => i)
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 export default function Icebreakers() {
   const [prompt, setPrompt] = useState(null)
+  const [order, setOrder] = useState([])
+  const [pos, setPos] = useState(-1)
 
   const draw = useCallback(() => {
     const prompts = FUN_FRIDAY_PROMPTS || []
@@ -12,13 +23,29 @@ export default function Icebreakers() {
       setPrompt(prompts[0])
       return
     }
-    let i = Math.floor(Math.random() * prompts.length)
-    let guard = 0
-    while (prompt !== null && prompts[i] === prompt && guard++ < 64) {
-      i = Math.floor(Math.random() * prompts.length)
+
+    const startNewRound = () => {
+      let nextOrder = shuffledIndices(prompts.length)
+      if (prompt != null) {
+        let guard = 0
+        while (nextOrder[0] != null && prompts[nextOrder[0]] === prompt && guard++ < 32) {
+          nextOrder = shuffledIndices(prompts.length)
+        }
+      }
+      setOrder(nextOrder)
+      setPos(0)
+      setPrompt(prompts[nextOrder[0]])
     }
-    setPrompt(prompts[i])
-  }, [prompt])
+
+    if (!order.length || pos < 0 || pos >= order.length - 1) {
+      startNewRound()
+      return
+    }
+
+    const nextPos = pos + 1
+    setPos(nextPos)
+    setPrompt(prompts[order[nextPos]])
+  }, [order, pos, prompt])
 
   const empty = !FUN_FRIDAY_PROMPTS?.length
 

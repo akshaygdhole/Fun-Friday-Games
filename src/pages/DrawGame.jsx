@@ -4,33 +4,31 @@ import { useScore } from "../context/ScoreContext"
 import { FUN_FRIDAY_DRAW_PROMPTS } from "../data/draw-prompts"
 import { shuffle } from "../utils/shuffle"
 
+const DRAW_SECONDS = 15
+
+function shuffledIndices(n) {
+  const a = Array.from({ length: n }, (_, i) => i)
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 export default function DrawGame() {
   const prompts = FUN_FRIDAY_DRAW_PROMPTS || []
-  const { teams, addScore } = useScore()
-  const deckRef = useRef([])
+  const { addScore } = useScore()
 
-  const [teamTurn, setTeamTurn] = useState(0)
-  const [remaining, setRemaining] = useState(60)
+  const [remaining, setRemaining] = useState(DRAW_SECONDS)
   const [active, setActive] = useState(false)
   const [word, setWord] = useState(null)
-  const [idleMsg, setIdleMsg] = useState("Press Start turn.")
+  const [idleMsg, setIdleMsg] = useState("Tap Next to start.")
+  const [order, setOrder] = useState([])
+  const [pos, setPos] = useState(-1)
 
-  const drawCard = useCallback(() => {
-    if (!deckRef.current.length) deckRef.current = shuffle([...prompts])
-    const w = deckRef.current.shift()
-    if (!w) {
-      setIdleMsg("No prompts in src/data/draw-prompts.js")
-      setWord(null)
-      return
-    }
-    setWord(w)
-  }, [prompts])
-
-  const endTurn = useCallback(() => {
+  const endRound = useCallback((msg = "Round over. Next: press Start round.") => {
     setActive(false)
-    setTeamTurn((t) => (t === 0 ? 1 : 0))
-    setWord(null)
-    setIdleMsg("Turn over. Next team: press Start turn.")
+    setIdleMsg(msg)
   }, [])
 
   useEffect(() => {
@@ -38,23 +36,52 @@ export default function DrawGame() {
     const id = setInterval(() => {
       setRemaining((r) => {
         if (r <= 1) {
-          endTurn()
-          return 60
+          endRound("Time! Tap Next for a new prompt.")
+          return DRAW_SECONDS
         }
         return r - 1
       })
     }, 1000)
     return () => clearInterval(id)
-  }, [active, endTurn])
+  }, [active, endRound])
 
-  const startTurn = useCallback(() => {
-    if (active) return
-    setRemaining(60)
+  const startTimerForWord = useCallback(() => {
+    setRemaining(DRAW_SECONDS)
     setActive(true)
     setIdleMsg("")
-    drawCard()
-  }, [active, drawCard])
+  }, [])
 
+  const next = useCallback(() => {
+    if (!prompts.length) return
+
+    // Start a new shuffled round if we haven't started yet,
+    // or if we're currently at the end of the round.
+    if (!order.length || pos < 0 || pos >= order.length - 1) {
+      const nextOrder = shuffledIndices(prompts.length)
+      const nextPos = 0
+      setOrder(nextOrder)
+      setPos(nextPos)
+      setWord(prompts[nextOrder[nextPos]])
+      startTimerForWord()
+      return
+    }
+
+    const nextPos = pos + 1
+    setPos(nextPos)
+    setWord(prompts[order[nextPos]])
+    startTimerForWord()
+  }, [prompts, order, pos, startTimerForWord])
+
+  const previous = useCallback(() => {
+    if (!order.length || pos <= 0) return
+    const prevPos = pos - 1
+    setPos(prevPos)
+    setWord(prompts[order[prevPos]])
+    startTimerForWord()
+  }, [order, pos, prompts, startTimerForWord])
+
+  const total = prompts.length
+  const shown = pos >= 0 ? pos + 1 : 0
   return (
     <div className="activity-page">
       <div className="bg-pattern" aria-hidden="true" />
@@ -65,14 +92,16 @@ export default function DrawGame() {
         <header className="activity-hero--split">
           <h1 className="page-title">Draw & guess</h1>
           <p className="page-sub">
-            60-second turns, alternating teams. Draw on paper or whiteboard, or
-            emoji-only hints in chat (no spoken words).
+            15-second rounds. Anyone can draw; fastest team to guess scores.
+            Draw on paper/whiteboard, or emoji-only hints in chat (no spoken words).
           </p>
         </header>
         <section className="panel activity-panel">
           <div className="quiz-meta">
             <span>Round: {remaining}s</span>
-            <span>Turn: {teams[teamTurn].name}</span>
+            <span>
+              {total ? `Prompt ${shown} / ${total}` : "No prompts"}
+            </span>
           </div>
           <div className="prompt-box">
             {word ? (
@@ -90,35 +119,48 @@ export default function DrawGame() {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={startTurn}
-              disabled={active}
+              onClick={previous}
+              disabled={!total || pos <= 0}
             >
-              Start turn
+              Previous
             </button>
             <button
               type="button"
               className="btn btn-ghost"
-              onClick={() => active && drawCard()}
+              onClick={next}
+              disabled={!total}
+            >
+              Next
+            </button>
+          </div>
+          <div className="activity-actions activity-actions--spaced activity-actions--grid">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => {
+                if (!active) return
+                addScore(0, 1)
+                endRound()
+              }}
               disabled={!active}
             >
-              Pass
+              Team A guessed first (+1)
             </button>
             <button
               type="button"
               className="btn btn-primary"
               onClick={() => {
                 if (!active) return
-                addScore(teamTurn, 1)
-                drawCard()
+                addScore(1, 1)
+                endRound()
               }}
               disabled={!active}
             >
-              Correct (+1)
+              Team B guessed first (+1)
             </button>
           </div>
-          <p className="activity-tip">
-            Edit prompts in <code>src/data/draw-prompts.js</code>.
-          </p>
+
+          <p className="activity-tip">Tip: no words—only drawings or emojis.</p>
         </section>
       </main>
     </div>

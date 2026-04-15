@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import Scoreboard from "./pages/Scoreboard";
 import Icebreakers from "./pages/Icebreakers";
-import Categories from "./pages/Categories";
+import LetterSprint from "./pages/LetterSprint";
 import DrawGame from "./pages/DrawGame";
 import TruthsLies from "./pages/TruthsLies";
 import RapidFire from "./pages/RapidFire";
@@ -21,7 +21,7 @@ export default function App() {
           <Route element={<GameLayout />}>
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/icebreakers" element={<Icebreakers />} />
-            <Route path="/games/categories" element={<Categories />} />
+            <Route path="/games/categories" element={<LetterSprint />} />
             <Route path="/games/draw" element={<DrawGame />} />
             <Route path="/games/truths-lies" element={<TruthsLies />} />
             <Route path="/games/rapidfire" element={<RapidFire />} />

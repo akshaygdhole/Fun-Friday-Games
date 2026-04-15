@@ -5,7 +5,7 @@ import { FUN_FRIDAY_CATEGORIES } from "../data/categories"
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-export default function Categories() {
+export default function LetterSprint() {
   const categories = FUN_FRIDAY_CATEGORIES || []
   const { addScore } = useScore()
   const [remaining, setRemaining] = useState(60)
@@ -63,10 +63,10 @@ export default function Categories() {
           <Link to="/">← Back to hub</Link>
         </nav>
         <header className="activity-hero--split">
-          <h1 className="page-title">Categories (Scattergories-lite)</h1>
+          <h1 className="page-title">Letter Sprint</h1>
           <p className="page-sub">
-            Category plus letter each round. 60-second timer. Teams name matching
-            items; award the point for the stronger list.
+            You get a category + letter. Teams have 60 seconds to list as many
+            answers as possible that start with that letter.
           </p>
         </header>
         <section className="panel activity-panel">
@@ -121,3 +121,4 @@ export default function Categories() {
     </div>
   )
 }
+

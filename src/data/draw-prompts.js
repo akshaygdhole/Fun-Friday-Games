@@ -15,4 +15,9 @@ export const FUN_FRIDAY_DRAW_PROMPTS = [
   "Treasure map",
   "Lighthouse",
   "Kangaroo",
+  "Cricket bat",
+  "Auto rickshaw",
+  "Masala dosa",
+  "Bollywood dance",
+  "Diwali diya",
 ]

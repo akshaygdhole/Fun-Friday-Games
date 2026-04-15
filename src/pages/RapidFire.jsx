@@ -12,12 +12,17 @@ export default function RapidFire() {
 
   const [current, setCurrent] = useState(null)
   const [answerVisible, setAnswerVisible] = useState(false)
+  const [qNum, setQNum] = useState(0)
 
   const nextQuestion = useCallback(() => {
-    if (!deckRef.current.length) deckRef.current = shuffle([...items])
+    if (!deckRef.current.length) {
+      deckRef.current = shuffle([...items])
+      setQNum(0)
+    }
     const q = deckRef.current.shift() || null
     setCurrent(q)
     setAnswerVisible(false)
+    setQNum((n) => n + 1)
   }, [items])
 
   useEffect(() => {
@@ -36,12 +41,20 @@ export default function RapidFire() {
         <header className="activity-hero--split">
           <h1 className="page-title">Rapid-fire</h1>
           <p className="page-sub">
-            Short questions; teams guess first. Reveal the answer when ready.
+            1 question at a time. First team to shout the correct answer gets
+            +1. Tap Show answer if needed, then Next.
           </p>
         </header>
         <section className="panel activity-panel">
+          <div className="quiz-meta">
+            <span>
+              {items.length
+                ? `Question ${Math.min(qNum, items.length)} / ${items.length}`
+                : "No questions"}
+            </span>
+          </div>
           <p className="activity-question">
-            {current ? current.q : "Add questions to src/data/rapidfire.js"}
+            {current ? current.q : "No questions yet — add a few and try again."}
           </p>
           <div
             className={`feedback feedback--fancy ${answerVisible ? "" : "hidden"}`}

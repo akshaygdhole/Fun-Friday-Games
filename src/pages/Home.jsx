@@ -6,43 +6,43 @@ const cards = [
     to: "/quiz",
     icon: "?",
     title: "Team quiz",
-    text: "Multiple-choice questions. Edit them in src/data/questions.js.",
+    text: "15s + 15s, then fastest finger wins.",
     cta: "Start quiz",
   },
   {
     to: "/games/scavenger-hunt",
     icon: "\u{1F3E0}",
     title: "Virtual scavenger hunt",
-    text: "At-home items on a video call: show on camera or in chat. Winner earns 2 points per round.",
+    text: "Race to find an item and show it on camera (or in chat). Fastest wins the round.",
     cta: "Start scavenger hunt",
   },
   {
     to: "/games/draw",
     icon: "\u{1F3A8}",
     title: "Draw & guess",
-    text: "Whiteboard or emoji-only hints. Timed turns, great for big teams.",
+    text: "One person draws (or gives emoji-only hints). Everyone guesses—no speaking, just clues—before the timer ends.",
     cta: "Play Draw & guess",
   },
   {
     to: "/games/categories",
     icon: "\u{1F4DC}",
-    title: "Categories (60s)",
-    text: "Get a random category + letter. Teams brainstorm fast; host awards points.",
-    cta: "Play Categories",
+    title: "Letter Sprint (60s)",
+    text: "Get a category + letter. You have 60 seconds to list as many matching answers as you can.",
+    cta: "Play Letter Sprint",
   },
 
   {
     to: "/games/truths-lies",
     icon: "\u{1F914}",
     title: "Two truths & a lie",
-    text: "Three statements per round; teams spot the lie, host scores.",
+    text: "One person shares 3 statements. Everyone guesses which one is the lie.",
     cta: "Play truths & lie",
   },
   {
     to: "/games/rapidfire",
     icon: "\u26A1",
     title: "Rapid-fire",
-    text: "Quick questions; first team to answer wins the point (host taps +1).",
+    text: "Fast questions. Shout the answer—speed matters more than strategy.",
     cta: "Play rapid-fire",
   },
 
@@ -50,7 +50,7 @@ const cards = [
     to: "/icebreakers",
     icon: "\u{1F4AC}",
     title: "Icebreaker prompts",
-    text: "Random conversation starters - great for the first 10-15 minutes.",
+    text: "Random fun questions to warm up the room.",
     cta: "Draw a prompt",
   },
 ]
@@ -66,6 +66,9 @@ export default function Home() {
             <ScoreWidget />
           </div>
         </div>
+        <p className="home-subtitle">
+          Pick a game and play a quick round with your team.
+        </p>
       </header>
 
       <main className="cards cards--hub">

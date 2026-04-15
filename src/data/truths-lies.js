@@ -40,4 +40,44 @@ export const FUN_FRIDAY_TRUTHS_LIES = [
     explain:
       "The 10% brain myth is false — we use essentially all of our brain.",
   },
+  {
+    statements: [
+      "An octopus has three hearts.",
+      "A day on Venus is longer than a year on Venus.",
+      "The Great Wall of China is visible from the Moon with the naked eye.",
+    ],
+    lieIndex: 2,
+    explain:
+      "The Great Wall isn’t visible from the Moon with the naked eye; it’s a popular myth.",
+  },
+  {
+    statements: [
+      "Bats are the only mammals that can truly fly.",
+      "Camels store water in their humps.",
+      "Koalas sleep up to around 20 hours a day.",
+    ],
+    lieIndex: 1,
+    explain:
+      "Camels store fat in their humps (not water), which helps them survive harsh conditions.",
+  },
+  {
+    statements: [
+      "Wombat poop is cube-shaped.",
+      "Sharks are immune to cancer.",
+      "Some turtles can breathe through their butts (in certain conditions).",
+    ],
+    lieIndex: 1,
+    explain:
+      "Sharks are not immune to cancer; they can get cancer, though it’s less commonly observed in the wild.",
+  },
+  {
+    statements: [
+      "A group of flamingos is called a flamboyance.",
+      "The Eiffel Tower grows taller in summer due to heat expansion.",
+      "The Statue of Liberty was a gift from the United Kingdom to the United States.",
+    ],
+    lieIndex: 2,
+    explain:
+      "The Statue of Liberty was gifted by France, not the United Kingdom.",
+  },
 ]

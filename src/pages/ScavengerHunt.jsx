@@ -66,7 +66,7 @@ export default function ScavengerHunt() {
             className={`prompt-box scavenger-hunt-object ${current ? "" : "placeholder"}`}
           >
             {empty
-              ? "Add items to src/data/scavenger-hunt.js"
+              ? "No items yet — add a few and try again."
               : (current ?? "Tap “Next item” for a random prompt.")}
           </div>
 
@@ -114,9 +114,7 @@ export default function ScavengerHunt() {
             </button>
           </div>
 
-          <p className="activity-tip">
-            Prompts: <code>src/data/scavenger-hunt.js</code>
-          </p>
+          <p className="activity-tip">Tip: keep it nearby and safe.</p>
         </section>
       </main>
     </div>

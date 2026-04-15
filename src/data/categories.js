@@ -6,4 +6,5 @@ export const FUN_FRIDAY_CATEGORIES = [
   "Apps / websites",
   "Animals",
   "Sports",
+  "Famous people",
 ]
