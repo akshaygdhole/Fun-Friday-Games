@@ -30,6 +30,13 @@ const cards = [
     text: "Get a category + letter. You have 60 seconds to list as many matching answers as you can.",
     cta: "Play Letter Sprint",
   },
+  {
+    to: "/games/meme-caption",
+    icon: "\u{1F5BC}\uFE0F",
+    title: "Meme Caption Battle",
+    text: "Write the funniest caption in 30 seconds. Vote the best—winner gets +1.",
+    cta: "Play Meme Caption",
+  },
 
   {
     to: "/games/truths-lies",
