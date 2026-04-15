@@ -256,9 +256,7 @@ export default function Quiz() {
                   <div className="quiz-timer-idle">
                     {!firstDone && (
                       <p>
-                        <strong>Window 1</strong> — Team {teamFirst}. On question 1,
-                        tap <strong>Start</strong>. After <strong>Next question</strong>,
-                        Window 1 starts by itself.
+                        <strong>Window 1</strong> — Team {teamFirst}.
                       </p>
                     )}
                     {firstDone && !secondDone && (
