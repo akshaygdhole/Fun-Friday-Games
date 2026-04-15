@@ -14,7 +14,6 @@ export const FUN_FRIDAY_SCAVENGER_HUNT = [
   "A pair of socks",
   "A coin or bill",
   "A mirror or reflective surface",
-  "Something older than 5 years",
   "A charger or cable",
   "A snack",
   "Something blue",

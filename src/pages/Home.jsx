@@ -10,18 +10,11 @@ const cards = [
     cta: "Start quiz",
   },
   {
-    to: "/icebreakers",
-    icon: "\u{1F4AC}",
-    title: "Icebreaker prompts",
-    text: "Random conversation starters - great for the first 10-15 minutes.",
-    cta: "Draw a prompt",
-  },
-  {
-    to: "/games/categories",
-    icon: "\u{1F4DC}",
-    title: "Categories (60s)",
-    text: "Get a random category + letter. Teams brainstorm fast; host awards points.",
-    cta: "Play Categories",
+    to: "/games/scavenger-hunt",
+    icon: "\u{1F3E0}",
+    title: "Virtual scavenger hunt",
+    text: "At-home items on a video call: show on camera or in chat. Winner earns 2 points per round.",
+    cta: "Start scavenger hunt",
   },
   {
     to: "/games/draw",
@@ -30,6 +23,14 @@ const cards = [
     text: "Whiteboard or emoji-only hints. Timed turns, great for big teams.",
     cta: "Play Draw & guess",
   },
+  {
+    to: "/games/categories",
+    icon: "\u{1F4DC}",
+    title: "Categories (60s)",
+    text: "Get a random category + letter. Teams brainstorm fast; host awards points.",
+    cta: "Play Categories",
+  },
+
   {
     to: "/games/truths-lies",
     icon: "\u{1F914}",
@@ -44,12 +45,13 @@ const cards = [
     text: "Quick questions; first team to answer wins the point (host taps +1).",
     cta: "Play rapid-fire",
   },
+
   {
-    to: "/games/scavenger-hunt",
-    icon: "\u{1F3E0}",
-    title: "Virtual scavenger hunt",
-    text: "At-home items on a video call: show on camera or in chat. Winner earns 2 points per round.",
-    cta: "Start scavenger hunt",
+    to: "/icebreakers",
+    icon: "\u{1F4AC}",
+    title: "Icebreaker prompts",
+    text: "Random conversation starters - great for the first 10-15 minutes.",
+    cta: "Draw a prompt",
   },
 ]
 
