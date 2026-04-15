@@ -6,7 +6,7 @@ const cards = [
     to: "/quiz",
     icon: "?",
     title: "Team quiz",
-    text: "15s + 15s, then fastest finger wins.",
+    text: "Team B gets 15s, then Team A gets 15s. After that, anyone can answer—tap Reveal to check.",
     cta: "Start quiz",
   },
   {
@@ -84,11 +84,7 @@ export default function Home() {
         ))}
       </main>
 
-      <footer className="site-footer site-footer--hub">
-        <p>
-          Dev: <code>npm run dev</code> · Build: <code>npm run build</code>
-        </p>
-      </footer>
+      <footer className="site-footer site-footer--hub" />
     </div>
   )
 }

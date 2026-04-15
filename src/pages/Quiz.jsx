@@ -215,8 +215,8 @@ export default function Quiz() {
           <header className="quiz-hero quiz-hero-web">
             <h1 className="quiz-hero-title">Team quiz</h1>
             <p className="quiz-hero-lede">
-              Rules: each question has two {QUIZ_QUESTION_SECONDS}s turns (Team B then Team A). After both turns, anyone can answer.
-              The correct option and explanation appear when <strong>Reveal answer</strong> is pressed.
+              Rules: Team B gets {QUIZ_QUESTION_SECONDS}s, then Team A gets {QUIZ_QUESTION_SECONDS}s. After both turns, anyone can answer.
+              Tap <strong>Reveal answer</strong> to show the correct option and explanation.
             </p>
           </header>
 

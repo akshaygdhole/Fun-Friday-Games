@@ -114,7 +114,7 @@ export default function ScavengerHunt() {
             </button>
           </div>
 
-          <p className="activity-tip">Tip: keep it nearby and safe.</p>
+          <p className="activity-tip" />
         </section>
       </main>
     </div>
