@@ -176,12 +176,6 @@ export default function Quiz() {
 
   const canStartNextWindow =
     !revealed && !timerOn && (!firstDone || (firstDone && !secondDone))
-  const startLabel =
-    firstDone && secondDone
-      ? "Both windows done"
-      : !firstDone
-        ? `Start — Team ${teamFirst}`
-        : `Start — Team ${teamSecond}`
 
   if (!questions.length) {
     return (
@@ -212,9 +206,9 @@ export default function Quiz() {
             <h1 className="quiz-hero-title">Team quiz</h1>
             <p className="quiz-hero-lede">
               Two {QUIZ_QUESTION_SECONDS}s buzz windows per question (teams alternate
-              which goes first). Only <strong>Start</strong> and <strong>Stop</strong>{" "}
-              control the timer. <strong>Next question</strong> begins Window 1
-              automatically. After both windows, reveal the answer below the choices.
+              which goes first). Use <strong>Start</strong> / <strong>Stop</strong>{" "}
+              to control the timer. <strong>Next question</strong> starts Window 1
+              automatically.
             </p>
           </header>
 
@@ -254,23 +248,13 @@ export default function Quiz() {
               ) : (
                 !revealed && (
                   <div className="quiz-timer-idle">
-                    {!firstDone && (
-                      <p>
-                        <strong>Window 1</strong> — Team {teamFirst}.
-                      </p>
-                    )}
-                    {firstDone && !secondDone && (
-                      <p>
-                        <strong>Window 2</strong> — Team {teamSecond}. Tap{" "}
-                        <strong>Start</strong> for their {QUIZ_QUESTION_SECONDS}s.
-                      </p>
-                    )}
-                    {firstDone && secondDone && (
-                      <p className="quiz-timer-idle-open">
-                        Both buzz windows finished — open floor, then{" "}
-                        <strong>Reveal answer</strong> when ready.
-                      </p>
-                    )}
+                    <p className={firstDone && secondDone ? "quiz-timer-idle-open" : ""}>
+                      {!firstDone
+                        ? `Next: Window 1 — Team ${teamFirst}`
+                        : !secondDone
+                          ? `Next: Window 2 — Team ${teamSecond}`
+                          : "Both buzz windows finished — open floor."}
+                    </p>
                   </div>
                 )
               )}
@@ -282,7 +266,7 @@ export default function Quiz() {
                   disabled={!canStartNextWindow}
                   onClick={startTimer}
                 >
-                  {startLabel}
+                  Start
                 </button>
                 <button
                   type="button"
@@ -290,7 +274,7 @@ export default function Quiz() {
                   disabled={!timerOn || revealed}
                   onClick={stopTimer}
                 >
-                  Stop timer
+                  Stop
                 </button>
               </div>
 

@@ -47,7 +47,11 @@ body {
   top: 0;
   z-index: 300;
   border-bottom: 1px solid #ffffff14;
-  background: linear-gradient(180deg, rgba(15, 20, 25, 0.98) 0%, rgba(15, 20, 25, 0.93) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 20, 25, 0.98) 0%,
+    rgba(15, 20, 25, 0.93) 100%
+  );
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.45);
@@ -229,7 +233,11 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-dim), transparent),
+    radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      var(--accent-dim),
+      transparent
+    ),
     radial-gradient(circle at 100% 100%, #1e3a5f22, transparent 40%);
   pointer-events: none;
   z-index: -1;
@@ -379,7 +387,10 @@ h1 {
   text-decoration: none;
   color: inherit;
   border: 1px solid #ffffff0d;
-  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    border-color 0.2s;
 }
 
 .card:hover {
@@ -917,11 +928,13 @@ h1 {
 }
 
 .quiz-host-toolbar--timer-only {
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .quiz-reveal-row {
-  margin: 0 0 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .quiz-reveal-btn {
@@ -998,7 +1011,9 @@ h1 {
   border: 1px solid #ffffff12;
   border-radius: 12px;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
 
 .options--fancy .option-btn {
@@ -1008,7 +1023,11 @@ h1 {
   border: 1px solid #ffffff14;
   box-shadow: 0 4px 24px #00000035;
   position: relative;
-  transition: transform 0.18s ease, border-color 0.18s, box-shadow 0.18s, background 0.18s;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s,
+    box-shadow 0.18s,
+    background 0.18s;
 }
 
 .options--fancy .option-btn::before {
@@ -1055,7 +1074,9 @@ h1 {
 .options--fancy .option-btn.correct {
   background: linear-gradient(165deg, #064e3a55 0%, #022c2299 100%);
   border-color: #34d399;
-  box-shadow: 0 0 0 1px #34d39944, 0 8px 32px #064e3a33;
+  box-shadow:
+    0 0 0 1px #34d39944,
+    0 8px 32px #064e3a33;
 }
 
 .option-btn.wrong {
@@ -1095,7 +1116,9 @@ h1 {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: opacity 0.15s, transform 0.1s;
+  transition:
+    opacity 0.15s,
+    transform 0.1s;
 }
 
 .btn:active {
@@ -1279,7 +1302,12 @@ h1 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: linear-gradient(180deg, rgba(15, 20, 25, 0.97) 0%, rgba(15, 20, 25, 0.92) 70%, rgba(15, 20, 25, 0));
+  background: linear-gradient(
+    180deg,
+    rgba(15, 20, 25, 0.97) 0%,
+    rgba(15, 20, 25, 0.92) 70%,
+    rgba(15, 20, 25, 0)
+  );
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid #ffffff12;
@@ -1580,7 +1608,8 @@ h1 {
 }
 
 .quiz-layout-web .quiz-card {
-  padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 2.5vw, 2rem);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem)
+    clamp(1.5rem, 2.5vw, 2rem);
   border-radius: 22px;
 }
 
@@ -1704,7 +1733,12 @@ h1 {
 
 .quiz-card {
   position: relative;
-  background: linear-gradient(155deg, #1a222cee 0%, #121820f2 45%, #0f141cf7 100%);
+  background: linear-gradient(
+    155deg,
+    #1a222cee 0%,
+    #121820f2 45%,
+    #0f141cf7 100%
+  );
   border: 1px solid #ffffff12;
   border-radius: 20px;
   padding: 1.75rem 1.5rem 1.5rem;
@@ -1891,7 +1925,9 @@ h1 {
   border-radius: 10px;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform 0.12s, opacity 0.12s;
+  transition:
+    transform 0.12s,
+    opacity 0.12s;
 }
 
 .btn-dock:active {
