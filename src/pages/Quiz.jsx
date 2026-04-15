@@ -205,10 +205,8 @@ export default function Quiz() {
           <header className="quiz-hero quiz-hero-web">
             <h1 className="quiz-hero-title">Team quiz</h1>
             <p className="quiz-hero-lede">
-              Two {QUIZ_QUESTION_SECONDS}s buzz windows per question (teams alternate
-              which goes first). Use <strong>Start</strong> / <strong>Stop</strong>{" "}
-              to control the timer. <strong>Next question</strong> starts Window 1
-              automatically.
+              Rules: each question has two {QUIZ_QUESTION_SECONDS}s turns (Team {teamFirst} then Team {teamSecond}). After both turns,
+              anyone can answer. The correct option and explanation appear when <strong>Reveal answer</strong> is pressed.
             </p>
           </header>
 
@@ -230,90 +228,96 @@ export default function Quiz() {
                     Question {index + 1} / {questions.length}
                   </span>
                   <span className="quiz-session-rounds">
-                    Window 1: Team {teamFirst} · Window 2: Team {teamSecond}
+                    Turns: Team {teamFirst} then Team {teamSecond}
                   </span>
                 </div>
               </div>
 
-              {timerOn ? (
-                <div
-                  className={`quiz-timer-dock ${remaining <= 5 ? "quiz-timer-dock--urgent" : ""}`}
-                  aria-live="polite"
-                >
-                  <div className="quiz-timer-dock-label">Buzz window</div>
-                  <div className="quiz-timer-dock-team">Team {runningTeam}</div>
-                  <div className="quiz-timer-dock-seconds">{remaining}</div>
-                  <div className="quiz-timer-dock-unit">seconds left</div>
-                </div>
-              ) : (
-                !revealed && (
-                  <div className="quiz-timer-idle">
-                    <p className={firstDone && secondDone ? "quiz-timer-idle-open" : ""}>
-                      {!firstDone
-                        ? `Next: Window 1 — Team ${teamFirst}`
-                        : !secondDone
-                          ? `Next: Window 2 — Team ${teamSecond}`
-                          : "Both buzz windows finished — open floor."}
-                    </p>
+              <div className="quiz-session-grid">
+                <div className="quiz-session-main">
+                  <p className="question-text question-text--fancy quiz-session-question">
+                    {q.question}
+                  </p>
+                  <div
+                    className="options options--fancy quiz-options-grid"
+                    role="group"
+                    aria-label="Answers"
+                  >
+                    {q.options.map((opt, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        className={`option-btn ${revealed && i === q.correctIndex ? "correct" : ""}`}
+                        data-letter={LETTERS[i] || String(i + 1)}
+                        disabled
+                      >
+                        {opt}
+                      </button>
+                    ))}
                   </div>
-                )
-              )}
-
-              <div className="quiz-host-toolbar quiz-host-toolbar--timer-only">
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  disabled={!canStartNextWindow}
-                  onClick={startTimer}
-                >
-                  Start
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-ghost"
-                  disabled={!timerOn || revealed}
-                  onClick={stopTimer}
-                >
-                  Stop
-                </button>
-              </div>
-
-              <p className="question-text question-text--fancy quiz-session-question">
-                {q.question}
-              </p>
-              <div
-                className="options options--fancy quiz-options-grid"
-                role="group"
-                aria-label="Answers"
-              >
-                {q.options.map((opt, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    className={`option-btn ${revealed && i === q.correctIndex ? "correct" : ""}`}
-                    data-letter={LETTERS[i] || String(i + 1)}
-                    disabled
+                  {!revealed ? (
+                    <div className="quiz-reveal-row">
+                      <button
+                        type="button"
+                        className="btn btn-primary quiz-reveal-btn"
+                        onClick={revealAnswer}
+                      >
+                        Reveal answer
+                      </button>
+                    </div>
+                  ) : null}
+                  <div
+                    className={`feedback feedback--fancy ${revealed ? "" : "hidden"}`}
+                    role="status"
                   >
-                    {opt}
-                  </button>
-                ))}
-              </div>
-              {!revealed ? (
-                <div className="quiz-reveal-row">
-                  <button
-                    type="button"
-                    className="btn btn-primary quiz-reveal-btn"
-                    onClick={revealAnswer}
-                  >
-                    Reveal answer
-                  </button>
+                    {revealed ? q.explain || "" : ""}
+                  </div>
                 </div>
-              ) : null}
-              <div
-                className={`feedback feedback--fancy ${revealed ? "" : "hidden"}`}
-                role="status"
-              >
-                {revealed ? q.explain || "" : ""}
+
+                <aside className="quiz-session-side" aria-label="Timer controls">
+                  {timerOn ? (
+                    <div
+                      className={`quiz-timer-dock ${remaining <= 5 ? "quiz-timer-dock--urgent" : ""}`}
+                      aria-live="polite"
+                    >
+                      <div className="quiz-timer-dock-label">Turn</div>
+                      <div className="quiz-timer-dock-team">Team {runningTeam}</div>
+                      <div className="quiz-timer-dock-seconds">{remaining}</div>
+                      <div className="quiz-timer-dock-unit">seconds left</div>
+                    </div>
+                  ) : (
+                    !revealed && (
+                      <div className="quiz-timer-idle">
+                        <p className={firstDone && secondDone ? "quiz-timer-idle-open" : ""}>
+                          {!firstDone
+                            ? `Next: Team ${teamFirst}`
+                            : !secondDone
+                              ? `Next: Team ${teamSecond}`
+                              : "Both turns finished — open floor."}
+                        </p>
+                      </div>
+                    )
+                  )}
+
+                  <div className="quiz-host-toolbar quiz-host-toolbar--timer-only">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      disabled={!canStartNextWindow}
+                      onClick={startTimer}
+                    >
+                      Start
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-ghost"
+                      disabled={!timerOn || revealed}
+                      onClick={stopTimer}
+                    >
+                      Stop
+                    </button>
+                  </div>
+                </aside>
               </div>
               <div className="quiz-actions quiz-actions--fancy quiz-session-footer">
                 <button
@@ -326,7 +330,7 @@ export default function Quiz() {
                 </button>
                 <button
                   type="button"
-                  className={`btn btn-primary ${revealed ? "" : "hidden"}`}
+                  className="btn btn-primary"
                   onClick={next}
                 >
                   Next question
