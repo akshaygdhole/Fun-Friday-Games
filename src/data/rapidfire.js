@@ -12,4 +12,4 @@ export const FUN_FRIDAY_RAPIDFIRE = [
   { q: "How many bytes in a kilobyte (decimal,1000-based)?", a: "1000" },
   { q: "What is H2O commonly called?", a: "Water" },
   { q: "Which ocean is the largest?", a: "Pacific" },
-];
+]

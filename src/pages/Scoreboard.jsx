@@ -48,11 +48,8 @@ export default function Scoreboard() {
       </header>
 
       <main className="page-main scoreboard-main">
-        <h1 className="page-title scoreboard-page-title">Host controls</h1>
-        <p className="page-sub">
-          Rename teams, use +1 / −1 / +5, or reset here. On quiz and games, the sticky bar at the top has the same live
-          scores with quick +1 / fouls so you can update without leaving the activity.
-        </p>
+        <h1 className="page-title scoreboard-page-title">Score controls</h1>
+        <p className="page-sub">Rename teams, adjust scores (+1 / −1 / +5), or reset both to zero.</p>
 
         <section className="panel">
           <div className="scoreboard" aria-label="Team scoreboard">

@@ -15,4 +15,4 @@ export const FUN_FRIDAY_DRAW_PROMPTS = [
   "Treasure map",
   "Lighthouse",
   "Kangaroo",
-];
+]

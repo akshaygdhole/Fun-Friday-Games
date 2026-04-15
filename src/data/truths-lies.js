@@ -37,6 +37,7 @@ export const FUN_FRIDAY_TRUTHS_LIES = [
       "Your bones are stronger than steel (by weight).",
     ],
     lieIndex: 1,
-    explain: "The 10% brain myth is false — we use essentially all of our brain.",
+    explain:
+      "The 10% brain myth is false — we use essentially all of our brain.",
   },
-];
+]

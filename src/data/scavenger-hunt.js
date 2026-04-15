@@ -18,4 +18,4 @@ export const FUN_FRIDAY_SCAVENGER_HUNT = [
   "A charger or cable",
   "A snack",
   "Something blue",
-];
+]

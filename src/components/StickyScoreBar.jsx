@@ -17,7 +17,7 @@ export default function StickyScoreBar() {
       <div className="sticky-score-bar-inner">
         <div className="sticky-score-bar-brand">
           <span className="sticky-score-bar-title">Live scores</span>
-          <span className="sticky-score-bar-hint">Adjust anytime while you play</span>
+          <span className="sticky-score-bar-hint">Quick + / −</span>
         </div>
 
         <div className="sticky-score-bar-teams">

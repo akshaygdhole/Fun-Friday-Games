@@ -10,4 +10,4 @@ export const FUN_FRIDAY_PROMPTS = [
   "What’s your go-to coffee, tea, or snack during work?",
   "What’s a skill someone on the team has that you admire?",
   "If your job had a mascot, what would it be?",
-];
+]

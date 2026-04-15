@@ -11,5 +11,4 @@ export const FUN_FRIDAY_CATEGORIES = [
   "Words related to technology",
   "Famous people",
   "Things that are cold",
-];
-
+]
