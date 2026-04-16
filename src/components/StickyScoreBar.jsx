@@ -111,9 +111,6 @@ export default function StickyScoreBar() {
           >
             Scoreboard
           </Link>
-          <Link to="/" className="sticky-score-link">
-            Hub
-          </Link>
         </div>
       </div>
     </header>

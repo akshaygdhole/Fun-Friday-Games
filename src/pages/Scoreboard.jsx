@@ -39,7 +39,7 @@ export default function Scoreboard() {
         <div className="scoreboard-top-header-inner">
           <div className="scoreboard-top-brand">
             <Link className="scoreboard-top-back" to="/">
-              ← Hub
+              ← Home
             </Link>
             <div className="scoreboard-top-titles">
               <span className="scoreboard-top-title">Live scoreboard</span>
