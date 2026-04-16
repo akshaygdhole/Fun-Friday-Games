@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import ScoreWidget from "../components/ScoreWidget"
 import LivelyticsLogoIcon from "../assets/LivelyticsLogoIcon"
+import FullscreenButton from "../components/FullscreenButton"
 
 const cards = [
   {
@@ -73,21 +74,26 @@ export default function Home() {
     <div className="home-page">
       <div className="bg-pattern" aria-hidden="true" />
       <header className="home-header">
-        <div className="home-header-row">
+        <div className="home-header-bar">
           <div className="home-brand" aria-label="Livelytics Team Games">
             <div className="home-brand-mark">
-              <LivelyticsLogoIcon width="120" height="28" />
+              <LivelyticsLogoIcon width="132" height="31" />
             </div>
             <h1 className="home-title">Team Games</h1>
           </div>
-          <div className="home-header-scores" aria-label="Live team scores">
-            <ScoreWidget />
+          <div className="home-header-actions">
+            <div className="home-header-scores" aria-label="Live team scores">
+              <ScoreWidget />
+            </div>
+            <FullscreenButton className="home-fullscreen-btn" />
           </div>
         </div>
-        <p className="home-subtitle">
-          Pick a game and play a quick round with your team.
-          <span className="home-powered">Powered by Livelytics</span>
-        </p>
+        <div className="home-header-lede">
+          <p className="home-subtitle">
+            Pick a game and play a quick round with your team.
+          </p>
+          <p className="home-powered-line">Powered by Livelytics</p>
+        </div>
       </header>
 
       <main className="cards cards--hub">
