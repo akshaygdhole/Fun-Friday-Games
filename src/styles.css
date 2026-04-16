@@ -4,9 +4,10 @@
   --surface-hover: #232d3a;
   --text: #e8eef4;
   --muted: #8b9aab;
-  --accent: #5eead4;
-  --accent-dim: #2dd4bf33;
-  --accent-soft: #5eead41a;
+  --brand: #47979c;
+  --accent: var(--brand);
+  --accent-dim: #47979c33;
+  --accent-soft: #47979c1a;
   --warning: #fbbf24;
   --radius: 16px;
   --font: "DM Sans", system-ui, sans-serif;
@@ -16,6 +17,27 @@
 
 .hidden {
   display: none !important;
+}
+
+.prompt-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.prompt-box::after {
+  content: "LIVELYTICS";
+  position: absolute;
+  right: 1rem;
+  bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 *,
@@ -73,6 +95,13 @@ body {
   flex-direction: column;
   gap: 0.05rem;
   min-width: 0;
+}
+
+.sticky-score-bar-logo {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
 }
 
 .sticky-score-bar-title {
@@ -317,11 +346,34 @@ h1 {
   border-bottom: 1px solid #ffffff0a;
 }
 
+.home-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.home-brand-mark {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  flex: 0 0 auto;
+}
+
 .home-subtitle {
   margin: 0.55rem 0 0;
   color: var(--muted);
   max-width: 72ch;
   line-height: 1.45;
+}
+
+.home-powered {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid #ffffff12;
+  color: var(--muted);
+  font-size: 0.9em;
 }
 
 .home-header-row {
@@ -378,6 +430,11 @@ h1 {
 
   .home-title {
     text-align: center;
+  }
+
+  .home-brand {
+    justify-content: center;
+    align-items: center;
   }
 }
 

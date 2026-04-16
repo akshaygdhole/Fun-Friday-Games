@@ -16,6 +16,10 @@ export default function MemeCaptionBattle() {
   const [running, setRunning] = useState(false)
   const [qNum, setQNum] = useState(0)
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Meme Caption Battle"
+  }, [])
+
   const nextPrompt = useCallback(() => {
     if (!deckRef.current.length) {
       deckRef.current = shuffle([...prompts])

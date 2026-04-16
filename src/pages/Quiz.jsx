@@ -17,6 +17,10 @@ export default function Quiz() {
   const [perQuestion, setPerQuestion] = useState({})
   const [showResult, setShowResult] = useState(false)
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Team quiz"
+  }, [])
+
   const [timerOn, setTimerOn] = useState(false)
   const [remaining, setRemaining] = useState(QUIZ_QUESTION_SECONDS)
   const [activeWindow, setActiveWindow] = useState(null)

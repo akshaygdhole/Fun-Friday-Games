@@ -14,6 +14,10 @@ export default function ScavengerHunt() {
   const [running, setRunning] = useState(false)
   const [itemNum, setItemNum] = useState(0)
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Home Hunt"
+  }, [])
+
   const newRound = useCallback(() => {
     if (!items.length) return
     if (!deckRef.current.length) {

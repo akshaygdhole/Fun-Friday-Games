@@ -17,6 +17,10 @@ export default function LetterSprint() {
   const [lastLetter, setLastLetter] = useState("")
   const [roundNum, setRoundNum] = useState(0)
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Letter Sprint"
+  }, [])
+
   const drawLetter = useCallback(() => {
     let l = ALPHABET[Math.floor(Math.random() * ALPHABET.length)]
     let g = 0

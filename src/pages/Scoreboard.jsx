@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useScore } from "../context/ScoreContext";
 
@@ -15,6 +16,10 @@ export default function Scoreboard() {
     leadClass = "scoreboard-stat-lead--b";
   }
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Scoreboard"
+  }, [])
+
   return (
     <div className="scoreboard-page">
       <div className="bg-pattern" aria-hidden="true" />
@@ -25,7 +30,7 @@ export default function Scoreboard() {
               ← Hub
             </Link>
             <div className="scoreboard-top-titles">
-              <span className="scoreboard-top-eyebrow">Fun Friday</span>
+              <span className="scoreboard-top-eyebrow">Livelytics Team Games</span>
               <span className="scoreboard-top-title">Live scoreboard</span>
             </div>
           </div>

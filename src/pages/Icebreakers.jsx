@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { FUN_FRIDAY_PROMPTS } from "../data/prompts"
 
@@ -15,6 +15,10 @@ export default function Icebreakers() {
   const [prompt, setPrompt] = useState(null)
   const [order, setOrder] = useState([])
   const [pos, setPos] = useState(-1)
+
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Icebreakers"
+  }, [])
 
   const draw = useCallback(() => {
     const prompts = FUN_FRIDAY_PROMPTS || []

@@ -17,6 +17,10 @@ export default function TruthsLies() {
   const [running, setRunning] = useState(false)
   const [roundNum, setRoundNum] = useState(0)
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Two truths & a lie"
+  }, [])
+
   const newRound = useCallback(() => {
     if (!deckRef.current.length) {
       deckRef.current = shuffle([...rounds])

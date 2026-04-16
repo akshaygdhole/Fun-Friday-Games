@@ -1,5 +1,7 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import ScoreWidget from "../components/ScoreWidget"
+import LivelyticsLogoIcon from "../assets/LivelyticsLogoIcon"
 
 const cards = [
   {
@@ -63,18 +65,28 @@ const cards = [
 ]
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Livelytics Team Games"
+  }, [])
+
   return (
     <div className="home-page">
       <div className="bg-pattern" aria-hidden="true" />
       <header className="home-header">
         <div className="home-header-row">
-          <h1 className="home-title">Fun Friday</h1>
+          <div className="home-brand" aria-label="Livelytics Team Games">
+            <div className="home-brand-mark">
+              <LivelyticsLogoIcon width="120" height="28" />
+            </div>
+            <h1 className="home-title">Team Games</h1>
+          </div>
           <div className="home-header-scores" aria-label="Live team scores">
             <ScoreWidget />
           </div>
         </div>
         <p className="home-subtitle">
           Pick a game and play a quick round with your team.
+          <span className="home-powered">Powered by Livelytics</span>
         </p>
       </header>
 

@@ -14,6 +14,10 @@ export default function RapidFire() {
   const [answerVisible, setAnswerVisible] = useState(false)
   const [qNum, setQNum] = useState(0)
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Rapid-fire"
+  }, [])
+
   const nextQuestion = useCallback(() => {
     if (!deckRef.current.length) {
       deckRef.current = shuffle([...items])

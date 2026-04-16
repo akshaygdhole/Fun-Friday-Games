@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 import { useScore } from "../context/ScoreContext"
+import LivelyticsLogoIcon from "../assets/LivelyticsLogoIcon"
 
 /**
  * Sticky bar on all activity routes: always-visible scores + quick adjust + link to full scoreboard.
@@ -20,8 +21,9 @@ export default function StickyScoreBar() {
     >
       <div className="sticky-score-bar-inner">
         <div className="sticky-score-bar-brand">
-          <span className="sticky-score-bar-title">Live scores</span>
-          <span className="sticky-score-bar-hint">Quick + / −</span>
+          <Link to="/" className="sticky-score-bar-logo" aria-label="Livelytics">
+            <LivelyticsLogoIcon width="110" height="26" />
+          </Link>
         </div>
 
         <div className="sticky-score-bar-teams">

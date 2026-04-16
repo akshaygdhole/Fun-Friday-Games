@@ -26,6 +26,10 @@ export default function DrawGame() {
   const [order, setOrder] = useState([])
   const [pos, setPos] = useState(-1)
 
+  useEffect(() => {
+    document.title = "Livelytics Team Games · Draw & guess"
+  }, [])
+
   const endRound = useCallback((msg = "Round over. Next: press Start round.") => {
     setActive(false)
     setIdleMsg(msg)
