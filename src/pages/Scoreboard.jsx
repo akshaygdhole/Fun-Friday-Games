@@ -72,7 +72,9 @@ export default function Scoreboard() {
             <h2 className="panel-title">Team assignments</h2>
             <div className="scoreboard scoreboard--rosters" aria-label="Team rosters">
               <div className="scorecard">
-                <div className="field-label">Team A members</div>
+                <div className="field-label field-label--team-a-highlight">
+                  Team A members
+                </div>
                 <ol className="scoreboard-roster">
                   {rosterA.map((n) => (
                     <li key={n}>{n}</li>
@@ -81,7 +83,9 @@ export default function Scoreboard() {
               </div>
 
               <div className="scorecard">
-                <div className="field-label">Team B members</div>
+                <div className="field-label field-label--team-a-highlight">
+                  Team B members
+                </div>
                 <ol className="scoreboard-roster">
                   {rosterB.map((n) => (
                     <li key={n}>{n}</li>
