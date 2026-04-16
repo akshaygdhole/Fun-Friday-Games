@@ -23,10 +23,15 @@ export default function StickyScoreBar() {
           <Link
             to="/"
             className="sticky-score-bar-logo"
-            aria-label="Livelytics Team Games"
+            aria-label="Livelytics Play Team Games"
           >
-            <LivelyticsLogoIcon width="132" height="31" />
-            <span className="sticky-score-bar-brand-name">Team Games</span>
+            <span className="sticky-score-bar-logo-graphic" aria-hidden="true">
+              <LivelyticsLogoIcon width="132" height="31" />
+            </span>
+            <span className="sticky-score-bar-brand-titles">
+              <span className="sticky-score-bar-play">Play</span>
+              <span className="sticky-score-bar-brand-name">Team Games</span>
+            </span>
           </Link>
         </div>
 
