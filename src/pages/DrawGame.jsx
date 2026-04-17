@@ -30,10 +30,13 @@ export default function DrawGame() {
     document.title = "Livelytics Team Games · Draw & guess"
   }, [])
 
-  const endRound = useCallback((msg = "Round over. Next: press Start round.") => {
-    setActive(false)
-    setIdleMsg(msg)
-  }, [])
+  const endRound = useCallback(
+    (msg = "Round over. Next: press Start round.") => {
+      setActive(false)
+      setIdleMsg(msg)
+    },
+    [],
+  )
 
   useEffect(() => {
     if (!active) return undefined
@@ -96,16 +99,14 @@ export default function DrawGame() {
         <header className="activity-hero--split">
           <h1 className="page-title">Draw & guess</h1>
           <p className="page-sub">
-            15-second rounds. Draw (or use emoji-only hints) — first team to
-            guess gets +1. No spoken words.
+            The host will provide a word or phrase.\n⚡ Reply with the correct
+            emojis—the fastest correct answer wins 🏆🔥
           </p>
         </header>
         <section className="panel activity-panel">
           <div className="quiz-meta">
             <span>Round: {remaining}s</span>
-            <span>
-              {total ? `Prompt ${shown} / ${total}` : "No prompts"}
-            </span>
+            <span>{total ? `Prompt ${shown} / ${total}` : "No prompts"}</span>
           </div>
           <div className="prompt-box">
             {word ? (

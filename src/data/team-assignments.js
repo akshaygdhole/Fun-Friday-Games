@@ -3,17 +3,17 @@ export const FUN_FRIDAY_TEAM_ASSIGNMENTS = {
     "Akash Dongre",
     "Atharva Topre",
     "Bhavesh Paunikar",
-    "Chandrashekhar Borkar",
     "Dnyaneshwar Pawar",
     "Kavita Patel",
     "Pooja Matsagar",
+    "Sejal Nikhare",
     "Raksha Mahajan",
-    "Rasika Sharma",
   ],
   teamB: [
     "Rishi Agrawal",
     "Saisandeep Abotu",
-    "Sejal Nikhare",
+    "Chandrashekhar Borkar",
+    "Rasika Sharma",
     "Sumit",
     "Tanisha Bansal",
     "Urvashi Singh",
@@ -21,4 +21,3 @@ export const FUN_FRIDAY_TEAM_ASSIGNMENTS = {
     "Vishal Kachrola",
   ],
 }
-

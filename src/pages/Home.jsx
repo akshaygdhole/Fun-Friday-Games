@@ -21,10 +21,10 @@ const cards = [
   },
   {
     to: "/games/draw",
-    icon: "\u{1F3A8}",
-    title: "Draw & guess",
-    text: "One person draws (or gives emoji-only hints). Everyone guesses—no speaking, just clues—before the timer ends.",
-    cta: "Play Draw & guess",
+    icon: "🎨",
+    title: "Draw & Guess",
+    text: "The host will provide a word or phrase.\n⚡ Reply with the correct emojis—the fastest correct answer wins 🏆🔥",
+    cta: "Start Draw & Guess",
   },
   {
     to: "/games/categories",
