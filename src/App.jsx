@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import GameLayout from "./components/GameLayout";
 import { ScoreProvider } from "./context/ScoreContext";
+import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import Scoreboard from "./pages/Scoreboard";
@@ -17,7 +18,8 @@ export default function App() {
     <ScoreProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/scoreboard" element={<Scoreboard />} />
           <Route element={<GameLayout />}>
             <Route path="/quiz" element={<Quiz />} />

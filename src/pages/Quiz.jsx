@@ -198,7 +198,7 @@ export default function Quiz() {
         <div className="quiz-layout">
           <div className="quiz-content">
             <nav className="page-nav page-nav--quiz">
-              <Link to="/">← Back to hub</Link>
+              <Link to="/home">← Back to hub</Link>
             </nav>
             <p>No questions in src/data/questions.js</p>
           </div>
@@ -213,7 +213,7 @@ export default function Quiz() {
       <div className="quiz-layout quiz-layout-web">
         <div className="quiz-content">
           <nav className="page-nav page-nav--quiz">
-            <Link to="/">← Back to hub</Link>
+            <Link to="/home">← Back to hub</Link>
           </nav>
 
           <header className="quiz-hero quiz-hero-web">

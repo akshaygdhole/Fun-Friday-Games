@@ -75,7 +75,7 @@ export default function Home() {
       <div className="bg-pattern" aria-hidden="true" />
       <header className="home-header">
         <div className="home-header-bar">
-          <div className="home-brand" aria-label="Livelytics Play Team Games">
+          <Link to="/" className="home-brand" aria-label="Go to landing page">
             <div className="home-brand-mark">
               <LivelyticsLogoIcon width="132" height="31" />
             </div>
@@ -83,12 +83,12 @@ export default function Home() {
               <span className="home-brand-play">Play</span>
               <span className="home-title-text">Team Games</span>
             </h1>
-          </div>
+          </Link>
           <div className="home-header-actions">
             <div className="home-header-scores" aria-label="Live team scores">
               <ScoreWidget />
             </div>
-            <FullscreenButton className="home-fullscreen-btn" />
+            <FullscreenButton className="home-fullscreen-btn" variant="icon" />
           </div>
         </div>
         <div className="home-header-lede">

@@ -38,7 +38,7 @@ export default function Scoreboard() {
       <header className="scoreboard-top-header scoreboard-top-header--compact">
         <div className="scoreboard-top-header-inner">
           <div className="scoreboard-top-brand">
-            <Link className="scoreboard-top-back" to="/">
+            <Link className="scoreboard-top-back" to="/home">
               ← Home
             </Link>
             <div className="scoreboard-top-titles">

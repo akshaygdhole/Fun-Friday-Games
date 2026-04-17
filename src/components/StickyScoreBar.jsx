@@ -20,19 +20,27 @@ export default function StickyScoreBar() {
     >
       <div className="sticky-score-bar-inner">
         <div className="sticky-score-bar-brand">
-          <Link
-            to="/"
-            className="sticky-score-bar-logo"
-            aria-label="Livelytics Play Team Games"
-          >
-            <span className="sticky-score-bar-logo-graphic" aria-hidden="true">
-              <LivelyticsLogoIcon width="132" height="31" />
-            </span>
-            <span className="sticky-score-bar-brand-titles">
-              <span className="sticky-score-bar-play">Play</span>
-              <span className="sticky-score-bar-brand-name">Team Games</span>
-            </span>
-          </Link>
+          <div className="sticky-score-bar-logo-stack" aria-label="Livelytics Team Games">
+            <Link
+              to="/"
+              className="sticky-score-bar-logo-link"
+              aria-label="Go to landing page"
+            >
+              <span className="sticky-score-bar-logo-graphic" aria-hidden="true">
+                <LivelyticsLogoIcon width="132" height="31" />
+              </span>
+            </Link>
+            <Link
+              to="/home"
+              className="sticky-score-bar-titles-link"
+              aria-label="Go to game hub"
+            >
+              <span className="sticky-score-bar-brand-titles">
+                <span className="sticky-score-bar-play">Play</span>
+                <span className="sticky-score-bar-brand-name">Team Games</span>
+              </span>
+            </Link>
+          </div>
         </div>
 
         {pathname !== "/scoreboard" ? (
@@ -104,7 +112,7 @@ export default function StickyScoreBar() {
         )}
 
         <div className="sticky-score-bar-actions">
-          <FullscreenButton className="sticky-fullscreen-btn" />
+          <FullscreenButton className="sticky-fullscreen-btn" variant="icon" />
           <Link
             to="/scoreboard"
             className="sticky-score-link sticky-score-link-primary"

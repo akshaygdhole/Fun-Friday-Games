@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function FullscreenButton({ className = "" }) {
+export default function FullscreenButton({ className = "", variant = "text" }) {
   const [isFullscreen, setIsFullscreen] = useState(false)
 
   useEffect(() => {
@@ -37,8 +37,15 @@ export default function FullscreenButton({ className = "" }) {
       onClick={toggleFullscreen}
       title={isFullscreen ? "Exit full screen (Esc)" : "Enter full screen for sharing"}
       aria-pressed={isFullscreen}
+      aria-label={isFullscreen ? "Exit full screen" : "Enter full screen"}
     >
-      {isFullscreen ? "Exit full screen" : "Full screen"}
+      {variant === "icon" ? (
+        <span className="fullscreen-btn-icon" aria-hidden="true">
+          {isFullscreen ? "⤢" : "⛶"}
+        </span>
+      ) : (
+        <span>{isFullscreen ? "Exit full screen" : "Full screen"}</span>
+      )}
     </button>
   )
 }

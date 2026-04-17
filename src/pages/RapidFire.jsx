@@ -40,7 +40,7 @@ export default function RapidFire() {
       <div className="bg-pattern" aria-hidden="true" />
       <main className="activity-layout">
         <nav className="page-nav page-nav--activity">
-          <Link to="/">← Back to hub</Link>
+          <Link to="/home">← Back to hub</Link>
         </nav>
         <header className="activity-hero--split">
           <h1 className="page-title">Rapid-fire</h1>
