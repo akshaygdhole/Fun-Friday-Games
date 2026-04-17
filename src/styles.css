@@ -709,9 +709,22 @@ h1 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 15% 20%, rgba(45, 212, 191, 0.16), transparent 55%),
-    radial-gradient(ellipse 80% 60% at 85% 15%, rgba(129, 140, 248, 0.14), transparent 55%),
-    linear-gradient(180deg, rgba(15, 20, 25, 0.88) 0%, rgba(15, 20, 25, 0.78) 45%, rgba(15, 20, 25, 0.92) 100%);
+    radial-gradient(
+      ellipse 70% 60% at 15% 20%,
+      rgba(45, 212, 191, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 85% 15%,
+      rgba(129, 140, 248, 0.14),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(15, 20, 25, 0.88) 0%,
+      rgba(15, 20, 25, 0.78) 45%,
+      rgba(15, 20, 25, 0.92) 100%
+    );
 }
 
 .landing-header {
@@ -790,6 +803,39 @@ h1 {
   flex-wrap: wrap;
   gap: 0.75rem;
   align-items: center;
+}
+
+.landing-quickready {
+  margin: 0.7rem 0 0;
+  width: min(720px, 100%);
+  display: grid;
+  gap: 0.55rem;
+}
+
+.landing-quickready-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.landing-quickready-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.landing-quickready-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid #ffffff14;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  opacity: 0.92;
+  font-size: 0.9rem;
 }
 
 .landing-cta {

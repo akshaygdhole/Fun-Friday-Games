@@ -32,9 +32,9 @@ export default function Landing() {
       </header>
 
       <main className="landing-main">
-        <h1 className="landing-headline">Quick, fun rounds for your meeting</h1>
+        <h1 className="landing-headline">Quick games. Big energy.</h1>
         <p className="landing-subhead">
-          Pick a game, share your screen, and keep score live.
+          Jump in, play along, and keep it fun — no prep needed.
         </p>
 
         <div className="landing-actions">
@@ -45,8 +45,32 @@ export default function Landing() {
             Open scoreboard
           </Link>
         </div>
+
+        <div className="landing-quickready" aria-label="Quick ready checklist">
+          <span className="landing-quickready-label">Quick ready</span>
+          <div className="landing-quickready-chips" role="list">
+            <span className="landing-quickready-chip" role="listitem">
+              🙌 Be present — join in fully
+            </span>
+            <span className="landing-quickready-chip" role="listitem">
+              👀 Faces help — camera on if you can
+            </span>
+            <span className="landing-quickready-chip" role="listitem">
+              😄 Reactions welcome
+            </span>
+            <span className="landing-quickready-chip" role="listitem">
+              🌐 Stable internet if you can
+            </span>
+
+            <span className="landing-quickready-chip" role="listitem">
+              🏆 Winner picks next game
+            </span>
+            <span className="landing-quickready-chip" role="listitem">
+              😂 Funniest wrong answer gets respect
+            </span>
+          </div>
+        </div>
       </main>
     </div>
   )
 }
-
