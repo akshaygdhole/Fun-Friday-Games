@@ -995,6 +995,94 @@ h1 {
   font-size: 0.95rem;
 }
 
+.home-seal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+.home-seal-btn {
+  min-height: 2.35rem;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.9rem;
+}
+
+.card--sealed {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  position: relative;
+  overflow: hidden;
+  border-style: dashed;
+  border-color: #ffffff22;
+  background:
+    linear-gradient(145deg, #1a222c 0%, #152028 55%, #1e2a36 100%);
+}
+
+.card--sealed:hover {
+  border-color: var(--accent);
+  background:
+    linear-gradient(145deg, #1f2a35 0%, #182430 55%, #243442 100%);
+}
+
+.card--sealed .card-cta {
+  color: var(--muted);
+}
+
+.card--sealed:hover .card-cta {
+  color: var(--accent);
+}
+
+.card--sealed-finale {
+  border-color: #fbbf2444;
+  background:
+    linear-gradient(145deg, #221c14 0%, #1a1710 50%, #2a2218 100%);
+}
+
+.card--sealed-finale:hover {
+  border-color: var(--warning);
+  background:
+    linear-gradient(145deg, #2a2218 0%, #1f1a12 50%, #332818 100%);
+}
+
+.card--sealed-finale .card-seal-mark {
+  color: var(--warning);
+  background: #fbbf2418;
+}
+
+.card-seal-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background: #ffffff10;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.card--revealed {
+  animation: seal-reveal 0.35s ease;
+}
+
+@keyframes seal-reveal {
+  from {
+    opacity: 0.55;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .site-footer {
   text-align: center;
   padding: 2rem 1.5rem;

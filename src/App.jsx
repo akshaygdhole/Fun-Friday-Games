@@ -12,6 +12,7 @@ import TruthsLies from "./pages/TruthsLies";
 import RapidFire from "./pages/RapidFire";
 import ScavengerHunt from "./pages/ScavengerHunt";
 import MemeCaptionBattle from "./pages/MemeCaptionBattle";
+import Desklympics from "./pages/Desklympics";
 
 export default function App() {
   return (
@@ -30,6 +31,8 @@ export default function App() {
             <Route path="/games/rapidfire" element={<RapidFire />} />
             <Route path="/games/scavenger-hunt" element={<ScavengerHunt />} />
             <Route path="/games/meme-caption" element={<MemeCaptionBattle />} />
+            <Route path="/games/desklympics" element={<Desklympics />} />
+            <Route path="/games/prop-improv" element={<Navigate to="/games/desklympics" replace />} />
             <Route path="/games/home-hunt" element={<Navigate to="/games/scavenger-hunt" replace />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
