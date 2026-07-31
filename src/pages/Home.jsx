@@ -5,12 +5,34 @@ import LivelyticsLogoIcon from "../assets/LivelyticsLogoIcon"
 import FullscreenButton from "../components/FullscreenButton"
 
 const cards = [
+  // {
+  //   to: "/quiz",
+  //   icon: "?",
+  //   title: "Team quiz",
+  //   text: "Team A gets 15 seconds to answer. If they can’t, Team B gets 15 seconds to steal.",
+  //   cta: "Start quiz",
+  // },
+  // {
+  //   to: "/games/draw",
+  //   icon: "🎨",
+  //   title: "Draw & Guess",
+  //   text: "The host will provide a word or phrase.\n⚡ Reply with the correct emojis—the fastest correct answer wins 🏆🔥",
+  //   cta: "Start Draw & Guess",
+  // },
   {
-    to: "/quiz",
-    icon: "?",
-    title: "Team quiz",
-    text: "Team A gets 15 seconds to answer. If they can’t, Team B gets 15 seconds to steal.",
-    cta: "Start quiz",
+    to: "/games/categories",
+    icon: "\u{1F4DC}",
+    title: "Letter Sprint (60s)",
+    text: "Get a category + letter. You have 60 seconds to list as many matching answers as you can.",
+    cta: "Play Letter Sprint",
+  },
+  
+  {
+    to: "/games/meme-caption",
+    icon: "\u{1F5BC}\uFE0F",
+    title: "Meme Caption Battle",
+    text: "Write the funniest caption in 30 seconds. Vote the best—winner gets +1.",
+    cta: "Play Meme Caption",
   },
   {
     to: "/games/scavenger-hunt",
@@ -19,35 +41,13 @@ const cards = [
     text: "Race to find an item and show it on camera (or in chat). Fastest wins the round.",
     cta: "Start Home Hunt",
   },
-  {
-    to: "/games/draw",
-    icon: "🎨",
-    title: "Draw & Guess",
-    text: "The host will provide a word or phrase.\n⚡ Reply with the correct emojis—the fastest correct answer wins 🏆🔥",
-    cta: "Start Draw & Guess",
-  },
-  {
-    to: "/games/categories",
-    icon: "\u{1F4DC}",
-    title: "Letter Sprint (60s)",
-    text: "Get a category + letter. You have 60 seconds to list as many matching answers as you can.",
-    cta: "Play Letter Sprint",
-  },
-  {
-    to: "/games/meme-caption",
-    icon: "\u{1F5BC}\uFE0F",
-    title: "Meme Caption Battle",
-    text: "Write the funniest caption in 30 seconds. Vote the best—winner gets +1.",
-    cta: "Play Meme Caption",
-  },
-
-  {
-    to: "/games/truths-lies",
-    icon: "\u{1F914}",
-    title: "Two truths & a lie",
-    text: "One person shares 3 statements. Everyone guesses which one is the lie.",
-    cta: "Play truths & lie",
-  },
+  // {
+  //   to: "/games/truths-lies",
+  //   icon: "\u{1F914}",
+  //   title: "Two truths & a lie",
+  //   text: "One person shares 3 statements. Everyone guesses which one is the lie.",
+  //   cta: "Play truths & lie",
+  // },
   {
     to: "/games/rapidfire",
     icon: "\u26A1",
@@ -55,7 +55,6 @@ const cards = [
     text: "Fast questions. Shout the answer—speed matters more than strategy.",
     cta: "Play rapid-fire",
   },
-
   {
     to: "/icebreakers",
     icon: "\u{1F4AC}",
