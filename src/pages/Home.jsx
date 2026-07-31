@@ -26,7 +26,7 @@ const cards = [
     text: "Get a category + letter. You have 60 seconds to list as many matching answers as you can.",
     cta: "Play Letter Sprint",
     seal: "01",
-    sealTitle: "Sealed round",
+    sealTitle: "Mystery game",
     sealHint: "Keep it mystery until you’re ready",
   },
   {
@@ -36,7 +36,7 @@ const cards = [
     text: "Write the funniest caption in 30 seconds. Vote the best—winner gets +1.",
     cta: "Play Meme Caption",
     seal: "02",
-    sealTitle: "Sealed round",
+    sealTitle: "Mystery game",
     sealHint: "Nobody peeks",
   },
   {
@@ -46,7 +46,7 @@ const cards = [
     text: "Race to find an item and show it on camera (or in chat). Fastest wins the round.",
     cta: "Start Home Hunt",
     seal: "03",
-    sealTitle: "Sealed round",
+    sealTitle: "Mystery game",
     sealHint: "Cameras ready… later",
   },
   // {
@@ -70,7 +70,7 @@ const cards = [
     text: "Random fun questions to warm up the room.",
     cta: "Draw a prompt",
     seal: "04",
-    sealTitle: "Sealed round",
+    sealTitle: "Mystery game",
     sealHint: "Warm-up energy, still secret",
   },
   {
